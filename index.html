@@ -461,3 +461,135 @@ text.includes(input) ? "" : "none";
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ಅರ್ಜಿ ಸ್ಥಿತಿ | VDSKN.IN</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Kannada",sans-serif;
+  background:#f4f7fb;
+  color:#172033;
+}
+
+header{
+  background:linear-gradient(135deg,#073b8c,#1769d1);
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+
+.container{
+  max-width:600px;
+  margin:35px auto;
+  padding:15px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+input{
+  width:100%;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:16px;
+  margin:10px 0 15px;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:25px;
+  background:#073b8c;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+}
+
+#result{
+  margin-top:20px;
+}
+
+.back{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  color:#073b8c;
+  text-decoration:none;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📋 ಅರ್ಜಿ ಸ್ಥಿತಿ</h1>
+  <p>VDSKN.IN</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>ನಿಮ್ಮ ಅರ್ಜಿ ಸ್ಥಿತಿ ಪರಿಶೀಲಿಸಿ</h2>
+
+<label>ಅರ್ಜಿ ಸಂಖ್ಯೆ</label>
+
+<input
+  type="text"
+  id="applicationNo"
+  placeholder="ಉದಾ: VDS001">
+
+<button onclick="checkStatus()">
+  🔍 ಸ್ಥಿತಿ ಪರಿಶೀಲಿಸಿ
+</button>
+
+<div id="result"></div>
+
+<a href="index.html" class="back">
+  ← ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+function checkStatus(){
+
+  const number =
+  document.getElementById("applicationNo").value.trim();
+
+  const result =
+  document.getElementById("result");
+
+  if(number === ""){
+    result.innerHTML =
+    "<p>⚠️ ದಯವಿಟ್ಟು ಅರ್ಜಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.</p>";
+    return;
+  }
+
+  result.innerHTML =
+  "<p>🔎 ಅರ್ಜಿ ಸಂಖ್ಯೆ: <b>" +
+  number +
+  "</b></p>" +
+  "<p>⏳ Database ಸಂಪರ್ಕಿಸಿದ ನಂತರ ನಿಜವಾದ ಅರ್ಜಿ ಸ್ಥಿತಿ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.</p>";
+}
+
+</script>
+
+</body>
+</html>
