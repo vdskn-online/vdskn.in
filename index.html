@@ -4,530 +4,180 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ನಮ್ಮ ಸೇವೆಗಳು | VDSKN.IN</title>
+<title>VDSKN.IN | Village Online Service Center</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 body{
-margin:0;
-font-family:Arial,"Noto Sans Kannada",sans-serif;
-background:#f4f7fb;
-color:#172033;
+    font-family:Arial,"Noto Sans Kannada",sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.6;
 }
 
 header{
-background:linear-gradient(135deg,#073b8c,#1769d1);
-color:white;
-text-align:center;
-padding:28px 15px;
+    background:linear-gradient(135deg,#243b80,#1769aa);
+    color:white;
+    text-align:center;
+    padding:25px 15px;
 }
 
-header h1{margin:0;font-size:28px}
-header p{margin:8px 0 0}
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:25px 12px;
+header h1{
+    font-size:32px;
 }
 
-.buttons{
-text-align:center;
-margin-bottom:20px;
-}
-
-.btn{
-display:inline-block;
-padding:12px 20px;
-border-radius:25px;
-text-decoration:none;
-font-weight:bold;
-margin:5px;
-}
-
-.home{
-background:#073b8c;
-color:white;
-}
-
-.whatsapp{
-background:#20c763;
-color:white;
-}
-
-.search{
-max-width:650px;
-margin:20px auto;
-}
-
-.search input{
-width:100%;
-padding:15px 20px;
-border:1px solid #ddd;
-border-radius:30px;
-font-size:16px;
-outline:none;
-}
-
-.table-box{
-background:white;
-border-radius:15px;
-overflow-x:auto;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-min-width:900px;
-}
-
-th{
-background:#073b8c;
-color:white;
-padding:15px;
-text-align:left;
-}
-
-td{
-padding:14px;
-border-bottom:1px solid #e5e7eb;
-vertical-align:middle;
-}
-
-tr:hover{
-background:#f8fafc;
-}
-
-.serial{
-width:60px;
-text-align:center;
-font-weight:bold;
-}
-
-.service{
-font-weight:bold;
-min-width:230px;
-}
-
-.documents{
-min-width:400px;
-}
-
-.details{
-display:inline-block;
-background:#1769d1;
-color:white;
-padding:9px 14px;
-border-radius:20px;
-text-decoration:none;
-font-size:13px;
-font-weight:bold;
-white-space:nowrap;
-}
-
-footer{
-margin-top:40px;
-background:#101828;
-color:white;
-text-align:center;
-padding:30px 15px;
-}
-
-footer p{
-color:#d0d5dd;
-}
-
-.float-whatsapp{
-position:fixed;
-right:18px;
-bottom:18px;
-width:58px;
-height:58px;
-border-radius:50%;
-background:#20c763;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:27px;
-text-decoration:none;
-box-shadow:0 5px 20px rgba(0,0,0,.25);
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>📋 ನಮ್ಮ ಸೇವೆಗಳು</h1>
-<p>ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ ಸೇವಾ ಕೇಂದ್ರ</p>
-</header>
-
-<div class="container">
-
-<div class="buttons">
-
-<a href="index.html" class="btn home">
-🏠 ಮುಖ್ಯ ಪುಟ
-</a>
-
-<a href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ,%20ನನಗೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು."
-target="_blank"
-class="btn whatsapp">
-📲 WhatsApp
-</a>
-
-</div>
-
-<div class="search">
-<input
-type="text"
-id="searchInput"
-placeholder="🔎 ಸೇವೆ ಹುಡುಕಿ..."
-onkeyup="searchServices()">
-</div>
-
-<div class="table-box">
-
-<table id="serviceTable">
-
-<thead>
-<tr>
-<th>#</th>
-<th>ಸೇವೆ</th>
-<th>ಮುಖ್ಯವಾಗಿ ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</th>
-<th>ವಿವರಗಳು</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr>
-<td class="serial">1</td>
-<td class="service">ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ಶಾಲಾ ದಾಖಲೆ / LC</td>
-<td><a class="details" href="service-details.html?service=1">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">2</td>
-<td class="service">ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ಆದಾಯದ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=2">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">3</td>
-<td class="service">ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td class="documents">ಆಧಾರ್, ವಿಳಾಸದ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=3">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">4</td>
-<td class="service">ನಿವಾಸ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ವಿಳಾಸದ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=4">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">5</td>
-<td class="service">ಹಿಂದುಳಿದ ವರ್ಗ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td class="documents">ಆಧಾರ್, ಜಾತಿ / ಶಾಲಾ ದಾಖಲೆ, ಅಗತ್ಯ ದಾಖಲೆಗಳು</td>
-<td><a class="details" href="service-details.html?service=5">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">6</td>
-<td class="service">ಕೃಷಿ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td class="documents">ಆಧಾರ್, RTC / ಪಹಣಿ, ಸಂಬಂಧಿತ ಕೃಷಿ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=6">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">7</td>
-<td class="service">PAN Card ಹೊಸ ಅರ್ಜಿ</td>
-<td class="documents">ಆಧಾರ್, 2 ಪಾಸ್‌ಪೋರ್ಟ್ ಸೈಜ್ ಫೋಟೋ, SSLC ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್</td>
-<td><a class="details" href="service-details.html?service=7">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">8</td>
-<td class="service">PAN Card ತಿದ್ದುಪಡಿ</td>
-<td class="documents">PAN ಕಾರ್ಡ್, ಆಧಾರ್, ತಿದ್ದುಪಡಿ ಅಗತ್ಯವಿರುವ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=8">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">9</td>
-<td class="service">Aadhaar ಸೇವೆಗಳು</td>
-<td class="documents">ಆಧಾರ್ ಸಂಖ್ಯೆ / ಅಗತ್ಯ ಗುರುತಿನ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=9">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">10</td>
-<td class="service">Voter ID ಹೊಸ ನೋಂದಣಿ</td>
-<td class="documents">ಆಧಾರ್ / ಗುರುತಿನ ದಾಖಲೆ, ವಿಳಾಸದ ದಾಖಲೆ, ಫೋಟೋ</td>
-<td><a class="details" href="service-details.html?service=10">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">11</td>
-<td class="service">Voter ID ತಿದ್ದುಪಡಿ</td>
-<td class="documents">Voter ID, ಆಧಾರ್ / ತಿದ್ದುಪಡಿ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=11">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">12</td>
-<td class="service">Voter ID Download</td>
-<td class="documents">EPIC ಸಂಖ್ಯೆ / ಅಗತ್ಯ ವಿವರಗಳು</td>
-<td><a class="details" href="service-details.html?service=12">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">13</td>
-<td class="service">ಬೆಳೆ ವಿಮೆ</td>
-<td class="documents">ಆಧಾರ್, RTC / ಪಹಣಿ, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಅರ್ಜಿ ನಮೂನೆ</td>
-<td><a class="details" href="service-details.html?service=13">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">14</td>
-<td class="service">RTC / ಪಹಣಿ</td>
-<td class="documents">ಸರ್ವೆ ನಂಬರ್ / ಮಾಲೀಕರ ವಿವರಗಳು</td>
-<td><a class="details" href="service-details.html?service=14">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">15</td>
-<td class="service">ಕೃಷಿ ಸಬ್ಸಿಡಿ ಅರ್ಜಿ</td>
-<td class="documents">ಆಧಾರ್, RTC, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಯೋಜನೆಗೆ ಬೇಕಾದ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=15">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">16</td>
-<td class="service">ರೈತ ಯೋಜನೆಗಳು</td>
-<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ವಿವರ, ಜಮೀನು ದಾಖಲೆಗಳು</td>
-<td><a class="details" href="service-details.html?service=16">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">17</td>
-<td class="service">ವೃದ್ಧಾಪ್ಯ ಪಿಂಚಣಿ</td>
-<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ವಯಸ್ಸಿನ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=17">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">18</td>
-<td class="service">ವಿಧವಾ ಪಿಂಚಣಿ</td>
-<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಪತಿಯ ಮರಣ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td><a class="details" href="service-details.html?service=18">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">19</td>
-<td class="service">ಅಂಗವಿಕಲರ ಪಿಂಚಣಿ</td>
-<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಅಂಗವಿಕಲ ಪ್ರಮಾಣ ಪತ್ರ</td>
-<td><a class="details" href="service-details.html?service=19">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">20</td>
-<td class="service">ವಿದ್ಯಾರ್ಥಿವೇತನ</td>
-<td class="documents">ಆಧಾರ್, ಜಾತಿ / ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ, ಬ್ಯಾಂಕ್ ವಿವರ, ವಿದ್ಯಾರ್ಥಿ ದಾಖಲೆ</td>
-<td><a class="details" href="service-details.html?service=20">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">21</td>
-<td class="service">ಉದ್ಯೋಗ ನೋಂದಣಿ</td>
-<td class="documents">ಆಧಾರ್, ಶಿಕ್ಷಣ ಪ್ರಮಾಣ ಪತ್ರ, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-<td><a class="details" href="service-details.html?service=21">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">22</td>
-<td class="service">ಸರ್ಕಾರಿ ಉದ್ಯೋಗ ಅರ್ಜಿ</td>
-<td class="documents">ಆಧಾರ್, ಫೋಟೋ, ಸಹಿ, ಶಿಕ್ಷಣ ದಾಖಲೆಗಳು</td>
-<td><a class="details" href="service-details.html?service=22">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">23</td>
-<td class="service">ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ ಯೋಜನೆ</td>
-<td class="documents">ಆಧಾರ್, ಶಿಕ್ಷಣ ದಾಖಲೆ, ಬ್ಯಾಂಕ್ ವಿವರ</td>
-<td><a class="details" href="service-details.html?service=23">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">24</td>
-<td class="service">ವಿದ್ಯುತ್ ಬಿಲ್ ಪಾವತಿ</td>
-<td class="documents">RR ಸಂಖ್ಯೆ / ಗ್ರಾಹಕ ಸಂಖ್ಯೆ</td>
-<td><a class="details" href="service-details.html?service=24">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">25</td>
-<td class="service">ಮೊಬೈಲ್ ರೀಚಾರ್ಜ್</td>
-<td class="documents">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-<td><a class="details" href="service-details.html?service=25">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">26</td>
-<td class="service">DTH ರೀಚಾರ್ಜ್</td>
-<td class="documents">ಗ್ರಾಹಕ ಸಂಖ್ಯೆ / ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-<td><a class="details" href="service-details.html?service=26">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">27</td>
-<td class="service">ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆ</td>
-<td class="documents">ಆಧಾರ್ / ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</td>
-<td><a class="details" href="service-details.html?service=27">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">28</td>
-<td class="service">ಹಣ ವರ್ಗಾವಣೆ</td>
-<td class="documents">ಆಧಾರ್ / ಬ್ಯಾಂಕ್ ವಿವರ, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-<td><a class="details" href="service-details.html?service=28">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">29</td>
-<td class="service">ವಿಮೆ ಸೇವೆಗಳು</td>
-<td class="documents">ಪಾಲಿಸಿ / ಗುರುತಿನ ದಾಖಲೆಗಳು, ಅಗತ್ಯ ವಿವರಗಳು</td>
-<td><a class="details" href="service-details.html?service=29">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-<tr>
-<td class="serial">30</td>
-<td class="service">ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಅರ್ಜಿ</td>
-<td class="documents">ಯೋಜನೆಗೆ ಅನುಗುಣವಾಗಿ ಅಗತ್ಯ ದಾಖಲೆಗಳು</td>
-<td><a class="details" href="service-details.html?service=30">📄 ವಿವರಗಳು</a></td>
-</tr>
-
-</tbody>
-</table>
-
-</div>
-</div>
-
-<footer>
-<h3>VDSKN.IN</h3>
-<p>ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ ಸೇವಾ ಕೇಂದ್ರ</p>
-<p>📞 8095713511</p>
-<p>© 2026 All Rights Reserved</p>
-</footer>
-
-<a
-class="float-whatsapp"
-href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ,%20ನನಗೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು."
-target="_blank">
-💬
-</a>
-
-<script>
-
-function searchServices(){
-
-let input=document
-.getElementById("searchInput")
-.value
-.toLowerCase();
-
-let rows=document
-.querySelectorAll("#serviceTable tbody tr");
-
-rows.forEach(function(row){
-
-let text=row.innerText.toLowerCase();
-
-row.style.display =
-text.includes(input) ? "" : "none";
-
-});
-
-}
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="kn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ಅರ್ಜಿ ಸ್ಥಿತಿ | VDSKN.IN</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial,"Noto Sans Kannada",sans-serif;
-  background:#f4f7fb;
-  color:#172033;
-}
-
-header{
-  background:linear-gradient(135deg,#073b8c,#1769d1);
-  color:white;
-  text-align:center;
-  padding:30px 15px;
+header p{
+    font-size:17px;
 }
 
 .container{
-  max-width:600px;
-  margin:35px auto;
-  padding:15px;
+    max-width:1100px;
+    margin:auto;
+    padding:15px;
+}
+
+.hero{
+    background:white;
+    margin:20px 0;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.hero h2{
+    color:#174a9c;
+    font-size:27px;
+    margin-bottom:10px;
+}
+
+.section-title{
+    text-align:center;
+    margin:25px 0 20px;
+    color:#173b78;
+    font-size:27px;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
 .card{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    border-top:4px solid #1769aa;
 }
 
-input{
-  width:100%;
-  padding:15px;
-  border:1px solid #ddd;
-  border-radius:10px;
-  font-size:16px;
-  margin:10px 0 15px;
+.card h3{
+    color:#174a9c;
+    margin-bottom:12px;
+    font-size:20px;
 }
 
-button{
-  width:100%;
-  padding:15px;
-  border:0;
-  border-radius:25px;
-  background:#073b8c;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
+.card ul{
+    padding-left:20px;
 }
 
-#result{
-  margin-top:20px;
+.card li{
+    margin:6px 0;
 }
 
-.back{
-  display:block;
-  text-align:center;
-  margin-top:20px;
-  color:#073b8c;
-  text-decoration:none;
-  font-weight:bold;
+.apply{
+    display:block;
+    margin-top:15px;
+    background:#16a34a;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    padding:11px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.apply:hover{
+    background:#128c3f;
+}
+
+.documents{
+    background:white;
+    margin-top:25px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.documents h2{
+    text-align:center;
+    color:#173b78;
+    margin-bottom:15px;
+}
+
+.documents li{
+    margin:7px 0;
+}
+
+.main-whatsapp{
+    display:block;
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    padding:16px;
+    border-radius:10px;
+    font-size:20px;
+    font-weight:bold;
+    margin:25px 0;
+}
+
+.contact{
+    background:#173b78;
+    color:white;
+    text-align:center;
+    padding:25px;
+    border-radius:15px;
+}
+
+.contact a{
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:22px 10px;
+    margin-top:30px;
+}
+
+@media(max-width:800px){
+    .services{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px){
+    header h1{
+        font-size:27px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
@@ -535,61 +185,185 @@ button{
 <body>
 
 <header>
-  <h1>📋 ಅರ್ಜಿ ಸ್ಥಿತಿ</h1>
-  <p>VDSKN.IN</p>
+    <h1>VDSKN.IN</h1>
+    <p>Village Online Service Center</p>
 </header>
 
 <div class="container">
 
+<section class="hero">
+    <h2>ನಿಮ್ಮ ಎಲ್ಲಾ ಆನ್‌ಲೈನ್ ಸೇವೆಗಳು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ</h2>
+    <p>
+        ಸರ್ಕಾರ ಹಾಗೂ ಸಾರ್ವಜನಿಕ ಸೇವೆಗಳಿಗೆ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.
+        ಸರಳವಾಗಿ, ವೇಗವಾಗಿ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿ ಸೇವೆ ಪಡೆಯಿರಿ.
+    </p>
+</section>
+
+<h2 class="section-title">ನಮ್ಮ ಸೇವೆಗಳು</h2>
+
+<div class="services">
+
+<!-- 1 -->
 <div class="card">
+<h3>ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</h3>
+<ul>
+<li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+<li>ರೇಷನ್ ಕಾರ್ಡ್</li>
+<li>ಶಾಲಾ ದೃಢೀಕರಣ / LC</li>
+<li>ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್</li>
+</ul>
 
-<h2>ನಿಮ್ಮ ಅರ್ಜಿ ಸ್ಥಿತಿ ಪರಿಶೀಲಿಸಿ</h2>
+<a class="apply"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ%20🙏%0Aನನಗೆ%20ಜಾತಿ%20ಮತ್ತು%20ಆದಾಯ%20ಪ್ರಮಾಣ%20ಪತ್ರಕ್ಕೆ%20ಅರ್ಜಿ%20ಸಲ್ಲಿಸಬೇಕು.%0A%0Aಬೇಕಾದ%20ದಾಖಲೆಗಳು:%0A1.%20ಆಧಾರ್%20ಕಾರ್ಡ್%0A2.%20ರೇಷನ್%20ಕಾರ್ಡ್%0A3.%20ಶಾಲಾ%20ದೃಢೀಕರಣ%20%2F%20LC%0A4.%20ಆಧಾರ್‌ಗೆ%20ಲಿಂಕ್%20ಇರುವ%20ಮೊಬೈಲ್"
+target="_blank">
+📱 WhatsApp ಮೂಲಕ ಅರ್ಜಿ
+</a>
+</div>
 
-<label>ಅರ್ಜಿ ಸಂಖ್ಯೆ</label>
 
-<input
-  type="text"
-  id="applicationNo"
-  placeholder="ಉದಾ: VDS001">
+<!-- 2 -->
+<div class="card">
+<h3>ಆಧಾರ್ ಸೇವೆಗಳು</h3>
+<ul>
+<li>ಆಧಾರ್ ಡೌನ್‌ಲೋಡ್</li>
+<li>ಆಧಾರ್ ಪ್ರಿಂಟ್</li>
+<li>ಆಧಾರ್ ಸಂಬಂಧಿತ ಸೇವೆಗಳು</li>
+<li>ಇತರೆ ಆಧಾರ್ ಸೇವೆಗಳು</li>
+</ul>
 
-<button onclick="checkStatus()">
-  🔍 ಸ್ಥಿತಿ ಪರಿಶೀಲಿಸಿ
-</button>
+<a class="apply"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ%20🙏%0Aನನಗೆ%20ಆಧಾರ್%20ಸಂಬಂಧಿತ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ.%0Aದಯವಿಟ್ಟು%20ಹೆಚ್ಚಿನ%20ಮಾಹಿತಿ%20ನೀಡಿ."
+target="_blank">
+📱 WhatsApp ಮೂಲಕ ಅರ್ಜಿ
+</a>
+</div>
 
-<div id="result"></div>
 
-<a href="index.html" class="back">
-  ← ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ
+<!-- 3 -->
+<div class="card">
+<h3>ವಿದ್ಯಾರ್ಥಿ ಸೇವೆಗಳು</h3>
+<ul>
+<li>ವಿದ್ಯಾರ್ಥಿ ವೇತನ ಅರ್ಜಿ</li>
+<li>ಶಾಲಾ ಪ್ರಮಾಣ ಪತ್ರ</li>
+<li>LC / TC ಸೇವೆಗಳು</li>
+<li>ಇತರೆ ವಿದ್ಯಾರ್ಥಿ ಸೇವೆಗಳು</li>
+</ul>
+
+<a class="apply"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ%20🙏%0Aನನಗೆ%20ವಿದ್ಯಾರ್ಥಿ%20ಸೇವೆಗೆ%20ಅರ್ಜಿ%20ಸಲ್ಲಿಸಬೇಕು.%0Aದಯವಿಟ್ಟು%20ಬೇಕಾದ%20ದಾಖಲೆಗಳ%20ಮಾಹಿತಿ%20ನೀಡಿ."
+target="_blank">
+📱 WhatsApp ಮೂಲಕ ಅರ್ಜಿ
+</a>
+</div>
+
+
+<!-- 4 -->
+<div class="card">
+<h3>ರೈತರ ಸೇವೆಗಳು</h3>
+<ul>
+<li>ಬೆಳೆ ವಿಮೆ ಅರ್ಜಿ</li>
+<li>ಪಹಣಿ / RTC ಸೇವೆಗಳು</li>
+<li>ಸರ್ಕಾರಿ ರೈತ ಯೋಜನೆಗಳು</li>
+<li>ಇತರೆ ರೈತ ಸೇವೆಗಳು</li>
+</ul>
+
+<a class="apply"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ%20🙏%0Aನನಗೆ%20ರೈತರಿಗೆ%20ಸಂಬಂಧಿಸಿದ%20ಆನ್‌ಲೈನ್%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ.%0Aದಯವಿಟ್ಟು%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ನೀಡಿ."
+target="_blank">
+📱 WhatsApp ಮೂಲಕ ಅರ್ಜಿ
+</a>
+</div>
+
+
+<!-- 5 -->
+<div class="card">
+<h3>ಆನ್‌ಲೈನ್ ಅರ್ಜಿಗಳು</h3>
+<ul>
+<li>ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಅರ್ಜಿ</li>
+<li>ವಿವಿಧ ಆನ್‌ಲೈನ್ ಸೇವೆಗಳು</li>
+<li>ಉದ್ಯೋಗ ಅರ್ಜಿಗಳು</li>
+<li>ಇತರೆ ಆನ್‌ಲೈನ್ ಅರ್ಜಿಗಳು</li>
+</ul>
+
+<a class="apply"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ%20🙏%0Aನನಗೆ%20ಆನ್‌ಲೈನ್%20ಅರ್ಜಿಗೆ%20ಸಂಬಂಧಿಸಿದ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ.%0Aದಯವಿಟ್ಟು%20ಮಾಹಿತಿ%20ನೀಡಿ."
+target="_blank">
+📱 WhatsApp ಮೂಲಕ ಅರ್ಜಿ
+</a>
+</div>
+
+
+<!-- 6 -->
+<div class="card">
+<h3>ಇತರೆ ಸೇವೆಗಳು</h3>
+<ul>
+<li>ಪ್ರಿಂಟ್ ಮತ್ತು ಸ್ಕ್ಯಾನ್</li>
+<li>ಆನ್‌ಲೈನ್ ಪಾವತಿ</li>
+<li>ಡಾಕ್ಯುಮೆಂಟ್ ಸೇವೆಗಳು</li>
+<li>ಇತರೆ ಸಾರ್ವಜನಿಕ ಸೇವೆಗಳು</li>
+</ul>
+
+<a class="apply"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ%20🙏%0Aನನಗೆ%20ಇತರೆ%20ಆನ್‌ಲೈನ್%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ.%0Aದಯವಿಟ್ಟು%20ಮಾಹಿತಿ%20ನೀಡಿ."
+target="_blank">
+📱 WhatsApp ಮೂಲಕ ಸಂಪರ್ಕಿಸಿ
+</a>
+</div>
+
+</div>
+
+
+<section class="documents">
+
+<h2>ಸಾಮಾನ್ಯವಾಗಿ ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h2>
+
+<ul>
+<li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+<li>ರೇಷನ್ ಕಾರ್ಡ್</li>
+<li>ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್</li>
+<li>ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</li>
+<li>ಶಾಲಾ ದೃಢೀಕರಣ / LC</li>
+<li>ಪಹಣಿ / RTC</li>
+<li>ಅಗತ್ಯವಿರುವ ಇತರೆ ದಾಖಲೆಗಳು</li>
+</ul>
+
+</section>
+
+
+<a class="main-whatsapp"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ%20🙏%20ನನಗೆ%20VDSKN.IN%20ಆನ್‌ಲೈನ್%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕಾಗಿದೆ."
+target="_blank">
+
+📱 WhatsApp ಮೂಲಕ ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಿ
+
 </a>
 
-</div>
+
+<section class="contact">
+
+<h2>ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h2>
+
+<p>VDSKN.IN – Village Online Service Center</p>
+
+<p>📍 ನಿಡಗುಂದಿ</p>
+
+<p>
+📞 <a href="tel:8095713511">8095713511</a>
+</p>
+
+<p>WhatsApp ಮೂಲಕ ಸೇವೆಯ ವಿವರಗಳನ್ನು ಪಡೆಯಿರಿ</p>
+
+</section>
 
 </div>
 
-<script>
 
-function checkStatus(){
+<footer>
 
-  const number =
-  document.getElementById("applicationNo").value.trim();
+<p>© 2026 VDSKN.IN</p>
+<p>Village Online Service Center</p>
 
-  const result =
-  document.getElementById("result");
-
-  if(number === ""){
-    result.innerHTML =
-    "<p>⚠️ ದಯವಿಟ್ಟು ಅರ್ಜಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.</p>";
-    return;
-  }
-
-  result.innerHTML =
-  "<p>🔎 ಅರ್ಜಿ ಸಂಖ್ಯೆ: <b>" +
-  number +
-  "</b></p>" +
-  "<p>⏳ Database ಸಂಪರ್ಕಿಸಿದ ನಂತರ ನಿಜವಾದ ಅರ್ಜಿ ಸ್ಥಿತಿ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.</p>";
-}
-
-</script>
+</footer>
 
 </body>
 </html>
