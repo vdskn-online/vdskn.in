@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="kn">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>VDSKN.IN - Admin Login</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial,"Noto Sans Kannada",sans-serif;
+    background:#f4f7fb;
+}
+
+.login-box{
+
+    max-width:400px;
+    margin:80px auto;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+}
+
+h1{
+    text-align:center;
+    color:#173b78;
+}
+
+input{
+
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    box-sizing:border-box;
+
+}
+
+button{
+
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:8px;
+    background:#1769aa;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+button:hover{
+    background:#12558a;
+}
+
+.back{
+
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#1769aa;
+    text-decoration:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h1>🔐 Admin Login</h1>
+
+<p style="text-align:center;">
+VDSKN.IN
+</p>
+
+<input
+type="email"
+id="adminEmail"
+placeholder="Admin Email"
+>
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Password"
+>
+
+<button onclick="adminLogin()">
+Login
+</button>
+
+<a class="back" href="index.html">
+← Websiteಗೆ ಹಿಂತಿರುಗಿ
+</a>
+
+</div>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyBTov5lBt2FxjFAX9XsPmY1jkB-lo34QJU",
+
+    authDomain:
+    "vdskn-3e44b.firebaseapp.com",
+
+    projectId:
+    "vdskn-3e44b",
+
+    storageBucket:
+    "vdskn-3e44b.firebasestorage.app",
+
+    messagingSenderId:
+    "978039870124",
+
+    appId:
+    "1:978039870124:web:672fc2f882309f798b8509",
+
+    measurementId:
+    "G-BP61KH4L71"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+window.adminLogin = async function(){
+
+    const email =
+    document.getElementById("adminEmail").value;
+
+    const password =
+    document.getElementById("adminPassword").value;
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        window.location.href =
+        "admin.html";
+
+    }
+
+    catch(error){
+
+        alert(
+        "Login ವಿಫಲವಾಗಿದೆ ❌\nEmail ಅಥವಾ Password ಪರಿಶೀಲಿಸಿ."
+        );
+
+        console.log(error);
+
+    }
+
+};
+
+</script>
+
+</body>
+</html>
