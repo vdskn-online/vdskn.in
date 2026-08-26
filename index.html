@@ -19,7 +19,19 @@ body{
     color:#222;
     line-height:1.6;
 }
-
+<a href="login.html"
+style="
+display:inline-block;
+background:#ffffff;
+color:#173b78;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin-top:12px;
+">
+🔐 Admin Login
+</a>
 header{
     background:linear-gradient(135deg,#243b80,#1769aa);
     color:white;
@@ -364,6 +376,101 @@ target="_blank">
 <p>Village Online Service Center</p>
 
 </footer>
+<script type="module">
 
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBTov5lBt2FxjFAX9XsPmY1jkB-lo34QJU",
+    authDomain: "vdskn-3e44b.firebaseapp.com",
+    projectId: "vdskn-3e44b",
+    storageBucket: "vdskn-3e44b.firebasestorage.app",
+    messagingSenderId: "978039870124",
+    appId: "1:978039870124:web:672fc2f882309f798b8509",
+    measurementId: "G-BP61KH4L71"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+// LOGIN
+window.adminLogin = async function () {
+
+    const email = document.getElementById("adminEmail").value;
+    const password = document.getElementById("adminPassword").value;
+
+    if (!email || !password) {
+        alert("Email ಮತ್ತು Password ನಮೂದಿಸಿ");
+        return;
+    }
+
+    try {
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        alert("Login ಯಶಸ್ವಿಯಾಗಿದೆ ✅");
+
+        window.location.href = "admin.html";
+
+    } catch (error) {
+
+        alert("Login ವಿಫಲವಾಗಿದೆ ❌\nEmail ಅಥವಾ Password ತಪ್ಪಾಗಿದೆ.");
+
+        console.error(error);
+    }
+};
+
+
+// LOGOUT
+window.adminLogout = async function () {
+
+    try {
+
+        await signOut(auth);
+
+        alert("Logout ಯಶಸ್ವಿಯಾಗಿದೆ ✅");
+
+        window.location.href = "index.html";
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+};
+
+
+// LOGIN STATUS
+onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+
+        console.log("Admin Login:", user.email);
+
+    } else {
+
+        console.log("Admin Logout");
+
+    }
+
+});
+
+</script>
 </body>
 </html>
