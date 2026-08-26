@@ -7,174 +7,153 @@
 <title>ನಮ್ಮ ಸೇವೆಗಳು | VDSKN.IN</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box}
 
 body{
-  font-family:Arial,"Noto Sans Kannada",sans-serif;
-  background:#f4f7fb;
-  color:#172033;
+margin:0;
+font-family:Arial,"Noto Sans Kannada",sans-serif;
+background:#f4f7fb;
+color:#172033;
 }
 
 header{
-  background:linear-gradient(135deg,#073b8c,#1769d1);
-  color:white;
-  padding:25px 18px;
-  text-align:center;
+background:linear-gradient(135deg,#073b8c,#1769d1);
+color:white;
+text-align:center;
+padding:28px 15px;
 }
 
-header h1{
-  font-size:30px;
-}
-
-header p{
-  margin-top:6px;
-}
+header h1{margin:0;font-size:28px}
+header p{margin:8px 0 0}
 
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 15px;
+max-width:1200px;
+margin:auto;
+padding:25px 12px;
 }
 
-.top-buttons{
-  text-align:center;
-  margin-bottom:25px;
+.buttons{
+text-align:center;
+margin-bottom:20px;
 }
 
 .btn{
-  display:inline-block;
-  padding:12px 20px;
-  margin:5px;
-  border-radius:25px;
-  text-decoration:none;
-  font-weight:bold;
+display:inline-block;
+padding:12px 20px;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+margin:5px;
 }
 
 .home{
-  background:#073b8c;
-  color:white;
+background:#073b8c;
+color:white;
 }
 
 .whatsapp{
-  background:#20c763;
-  color:white;
+background:#20c763;
+color:white;
 }
 
-.search-box{
-  margin:20px auto 30px;
-  max-width:650px;
+.search{
+max-width:650px;
+margin:20px auto;
 }
 
-.search-box input{
-  width:100%;
-  padding:15px 20px;
-  border:1px solid #ddd;
-  border-radius:30px;
-  font-size:16px;
-  outline:none;
+.search input{
+width:100%;
+padding:15px 20px;
+border:1px solid #ddd;
+border-radius:30px;
+font-size:16px;
+outline:none;
 }
 
-.table-wrapper{
-  background:white;
-  border-radius:15px;
-  overflow-x:auto;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+.table-box{
+background:white;
+border-radius:15px;
+overflow-x:auto;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:850px;
+width:100%;
+border-collapse:collapse;
+min-width:900px;
 }
 
 th{
-  background:#073b8c;
-  color:white;
-  padding:15px;
-  text-align:left;
+background:#073b8c;
+color:white;
+padding:15px;
+text-align:left;
 }
 
 td{
-  padding:14px;
-  border-bottom:1px solid #e5e7eb;
-  vertical-align:top;
+padding:14px;
+border-bottom:1px solid #e5e7eb;
+vertical-align:middle;
 }
 
 tr:hover{
-  background:#f8fafc;
+background:#f8fafc;
 }
 
 .serial{
-  font-weight:bold;
-  text-align:center;
-  width:60px;
+width:60px;
+text-align:center;
+font-weight:bold;
 }
 
 .service{
-  font-weight:bold;
-  min-width:220px;
+font-weight:bold;
+min-width:230px;
 }
 
 .documents{
-  min-width:400px;
+min-width:400px;
 }
 
-.apply-btn{
-  display:inline-block;
-  background:#20c763;
-  color:white;
-  padding:9px 14px;
-  border-radius:20px;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:bold;
-  white-space:nowrap;
+.details{
+display:inline-block;
+background:#1769d1;
+color:white;
+padding:9px 14px;
+border-radius:20px;
+text-decoration:none;
+font-size:13px;
+font-weight:bold;
+white-space:nowrap;
 }
 
 footer{
-  margin-top:40px;
-  background:#101828;
-  color:white;
-  text-align:center;
-  padding:30px 15px;
+margin-top:40px;
+background:#101828;
+color:white;
+text-align:center;
+padding:30px 15px;
 }
 
 footer p{
-  margin:5px;
-  color:#d0d5dd;
+color:#d0d5dd;
 }
 
-.mobile-whatsapp{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  background:#20c763;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  text-decoration:none;
-  box-shadow:0 5px 20px rgba(0,0,0,.25);
-  z-index:1000;
-}
-
-@media(max-width:600px){
-
-  header h1{
-    font-size:24px;
-  }
-
-  .container{
-    padding:20px 10px;
-  }
+.float-whatsapp{
+position:fixed;
+right:18px;
+bottom:18px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#20c763;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+text-decoration:none;
+box-shadow:0 5px 20px rgba(0,0,0,.25);
 }
 </style>
 </head>
@@ -182,314 +161,303 @@ footer p{
 <body>
 
 <header>
-  <h1>📋 ನಮ್ಮ ಸೇವೆಗಳು</h1>
-  <p>ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ ಸೇವಾ ಕೇಂದ್ರ</p>
+<h1>📋 ನಮ್ಮ ಸೇವೆಗಳು</h1>
+<p>ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ ಸೇವಾ ಕೇಂದ್ರ</p>
 </header>
 
 <div class="container">
 
-  <div class="top-buttons">
+<div class="buttons">
 
-    <a href="index.html" class="btn home">
-      🏠 ಮುಖ್ಯ ಪುಟ
-    </a>
+<a href="index.html" class="btn home">
+🏠 ಮುಖ್ಯ ಪುಟ
+</a>
 
-    <a href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ,%20ನನಗೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು."
-       target="_blank"
-       class="btn whatsapp">
-      📲 WhatsApp
-    </a>
-
-  </div>
-
-  <div class="search-box">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="🔎 ಸೇವೆ ಹುಡುಕಿ..."
-      onkeyup="searchServices()">
-  </div>
-
-  <div class="table-wrapper">
-
-    <table id="serviceTable">
-
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>ಸೇವೆ</th>
-          <th>ಮುಖ್ಯವಾಗಿ ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</th>
-          <th>ಸಂಪರ್ಕ</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-        <tr>
-          <td class="serial">1</td>
-          <td class="service">ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ಶಾಲಾ ದಾಖಲೆ / LC</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಜಾತಿ%20ಪ್ರಮಾಣ%20ಪತ್ರದ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">2</td>
-          <td class="service">ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ಆದಾಯದ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಆದಾಯ%20ಪ್ರಮಾಣ%20ಪತ್ರದ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">3</td>
-          <td class="service">ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td class="documents">ಆಧಾರ್, ವಿಳಾಸದ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ವಾಸಸ್ಥಳ%20ಪ್ರಮಾಣ%20ಪತ್ರದ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">4</td>
-          <td class="service">ನಿವಾಸ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ವಿಳಾಸದ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ನಿವಾಸ%20ಪ್ರಮಾಣ%20ಪತ್ರದ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">5</td>
-          <td class="service">ಹಿಂದುಳಿದ ವರ್ಗ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td class="documents">ಆಧಾರ್, ಜಾತಿ / ಶಾಲಾ ದಾಖಲೆ, ಅಗತ್ಯ ದಾಖಲೆಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಹಿಂದುಳಿದ%20ವರ್ಗ%20ಪ್ರಮಾಣ%20ಪತ್ರದ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">6</td>
-          <td class="service">ಕೃಷಿ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td class="documents">ಆಧಾರ್, RTC / ಪಹಣಿ, ಸಂಬಂಧಿತ ಕೃಷಿ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಕೃಷಿ%20ಪ್ರಮಾಣ%20ಪತ್ರದ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">7</td>
-          <td class="service">PAN Card ಹೊಸ ಅರ್ಜಿ</td>
-          <td class="documents">ಆಧಾರ್, 2 ಪಾಸ್‌ಪೋರ್ಟ್ ಸೈಜ್ ಫೋಟೋ, SSLC ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಹೊಸ%20PAN%20Card%20ಅರ್ಜಿಯ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">8</td>
-          <td class="service">PAN Card ತಿದ್ದುಪಡಿ</td>
-          <td class="documents">PAN ಕಾರ್ಡ್, ಆಧಾರ್, ತಿದ್ದುಪಡಿ ಅಗತ್ಯವಿರುವ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20PAN%20Card%20ತಿದ್ದುಪಡಿ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">9</td>
-          <td class="service">Aadhaar ಸೇವೆಗಳು</td>
-          <td class="documents">ಆಧಾರ್ ಸಂಖ್ಯೆ / ಅಗತ್ಯ ಗುರುತಿನ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20Aadhaar%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">10</td>
-          <td class="service">Voter ID ಹೊಸ ನೋಂದಣಿ</td>
-          <td class="documents">ಆಧಾರ್ / ಗುರುತಿನ ದಾಖಲೆ, ವಿಳಾಸದ ದಾಖಲೆ, ಫೋಟೋ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಹೊಸ%20Voter%20ID%20ನೋಂದಣಿ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">11</td>
-          <td class="service">Voter ID ತಿದ್ದುಪಡಿ</td>
-          <td class="documents">Voter ID, ಆಧಾರ್ / ತಿದ್ದುಪಡಿ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20Voter%20ID%20ತಿದ್ದುಪಡಿ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">12</td>
-          <td class="service">Voter ID Download</td>
-          <td class="documents">EPIC ಸಂಖ್ಯೆ / ಅಗತ್ಯ ವಿವರಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20Voter%20ID%20Download%20ಮಾಡಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">13</td>
-          <td class="service">ಬೆಳೆ ವಿಮೆ</td>
-          <td class="documents">ಆಧಾರ್, RTC / ಪಹಣಿ, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಅರ್ಜಿ ನಮೂನೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಬೆಳೆ%20ವಿಮೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">14</td>
-          <td class="service">RTC / ಪಹಣಿ</td>
-          <td class="documents">ಸರ್ವೆ ನಂಬರ್ / ಮಾಲೀಕರ ವಿವರಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20RTC%20ಅಥವಾ%20ಪಹಣಿ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">15</td>
-          <td class="service">ಕೃಷಿ ಸಬ್ಸಿಡಿ ಅರ್ಜಿ</td>
-          <td class="documents">ಆಧಾರ್, RTC, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಯೋಜನೆಗೆ ಬೇಕಾದ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಕೃಷಿ%20ಸಬ್ಸಿಡಿ%20ಅರ್ಜಿಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">16</td>
-          <td class="service">ರೈತ ಯೋಜನೆಗಳು</td>
-          <td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ವಿವರ, ಜಮೀನು ದಾಖಲೆಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ರೈತ%20ಯೋಜನೆಗಳ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">17</td>
-          <td class="service">ವೃದ್ಧಾಪ್ಯ ಪಿಂಚಣಿ</td>
-          <td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ವಯಸ್ಸಿನ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ವೃದ್ಧಾಪ್ಯ%20ಪಿಂಚಣಿ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">18</td>
-          <td class="service">ವಿಧವಾ ಪಿಂಚಣಿ</td>
-          <td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಪತಿಯ ಮರಣ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ವಿಧವಾ%20ಪಿಂಚಣಿ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">19</td>
-          <td class="service">ಅಂಗವಿಕಲರ ಪಿಂಚಣಿ</td>
-          <td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಅಂಗವಿಕಲ ಪ್ರಮಾಣ ಪತ್ರ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಅಂಗವಿಕಲರ%20ಪಿಂಚಣಿ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">20</td>
-          <td class="service">ವಿದ್ಯಾರ್ಥಿವೇತನ</td>
-          <td class="documents">ಆಧಾರ್, ಜಾತಿ / ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ, ಬ್ಯಾಂಕ್ ವಿವರ, ವಿದ್ಯಾರ್ಥಿ ದಾಖಲೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ವಿದ್ಯಾರ್ಥಿವೇತನ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">21</td>
-          <td class="service">ಉದ್ಯೋಗ ನೋಂದಣಿ</td>
-          <td class="documents">ಆಧಾರ್, ಶಿಕ್ಷಣ ಪ್ರಮಾಣ ಪತ್ರ, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಉದ್ಯೋಗ%20ನೋಂದಣಿ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">22</td>
-          <td class="service">ಸರ್ಕಾರಿ ಉದ್ಯೋಗ ಅರ್ಜಿ</td>
-          <td class="documents">ಆಧಾರ್, ಫೋಟೋ, ಸಹಿ, ಶಿಕ್ಷಣ ದಾಖಲೆಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಸರ್ಕಾರಿ%20ಉದ್ಯೋಗ%20ಅರ್ಜಿಯ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">23</td>
-          <td class="service">ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ ಯೋಜನೆ</td>
-          <td class="documents">ಆಧಾರ್, ಶಿಕ್ಷಣ ದಾಖಲೆ, ಬ್ಯಾಂಕ್ ವಿವರ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ%20ಯೋಜನೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">24</td>
-          <td class="service">ವಿದ್ಯುತ್ ಬಿಲ್ ಪಾವತಿ</td>
-          <td class="documents">RR ಸಂಖ್ಯೆ / ಗ್ರಾಹಕ ಸಂಖ್ಯೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ವಿದ್ಯುತ್%20ಬಿಲ್%20ಪಾವತಿ%20ಮಾಡಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">25</td>
-          <td class="service">ಮೊಬೈಲ್ ರೀಚಾರ್ಜ್</td>
-          <td class="documents">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಮೊಬೈಲ್%20ರೀಚಾರ್ಜ್%20ಮಾಡಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">26</td>
-          <td class="service">DTH ರೀಚಾರ್ಜ್</td>
-          <td class="documents">ಗ್ರಾಹಕ ಸಂಖ್ಯೆ / ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20DTH%20ರೀಚಾರ್ಜ್%20ಮಾಡಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">27</td>
-          <td class="service">ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆ</td>
-          <td class="documents">ಆಧಾರ್ / ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಬ್ಯಾಂಕಿಂಗ್%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">28</td>
-          <td class="service">ಹಣ ವರ್ಗಾವಣೆ</td>
-          <td class="documents">ಆಧಾರ್ / ಬ್ಯಾಂಕ್ ವಿವರ, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಹಣ%20ವರ್ಗಾವಣೆ%20ಸೇವೆ%20ಬೇಕಾಗಿದೆ." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">29</td>
-          <td class="service">ವಿಮೆ ಸೇವೆಗಳು</td>
-          <td class="documents">ಪಾಲಿಸಿ / ಗುರುತಿನ ದಾಖಲೆಗಳು, ಅಗತ್ಯ ವಿವರಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ವಿಮೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-        <tr>
-          <td class="serial">30</td>
-          <td class="service">ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಅರ್ಜಿ</td>
-          <td class="documents">ಯೋಜನೆಗೆ ಅನುಗುಣವಾಗಿ ಅಗತ್ಯ ದಾಖಲೆಗಳು</td>
-          <td><a class="apply-btn" href="https://wa.me/918095713511?text=ನನಗೆ%20ಸರ್ಕಾರಿ%20ಯೋಜನೆಯ%20ಅರ್ಜಿಯ%20ಮಾಹಿತಿ%20ಬೇಕು." target="_blank">📲 ವಿಚಾರಿಸಿ</a></td>
-        </tr>
-
-      </tbody>
-
-    </table>
-
-  </div>
+<a href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ,%20ನನಗೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು."
+target="_blank"
+class="btn whatsapp">
+📲 WhatsApp
+</a>
 
 </div>
 
+<div class="search">
+<input
+type="text"
+id="searchInput"
+placeholder="🔎 ಸೇವೆ ಹುಡುಕಿ..."
+onkeyup="searchServices()">
+</div>
+
+<div class="table-box">
+
+<table id="serviceTable">
+
+<thead>
+<tr>
+<th>#</th>
+<th>ಸೇವೆ</th>
+<th>ಮುಖ್ಯವಾಗಿ ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</th>
+<th>ವಿವರಗಳು</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="serial">1</td>
+<td class="service">ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ಶಾಲಾ ದಾಖಲೆ / LC</td>
+<td><a class="details" href="service-details.html?service=1">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">2</td>
+<td class="service">ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ಆದಾಯದ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=2">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">3</td>
+<td class="service">ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td class="documents">ಆಧಾರ್, ವಿಳಾಸದ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=3">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">4</td>
+<td class="service">ನಿವಾಸ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td class="documents">ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ವಿಳಾಸದ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=4">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">5</td>
+<td class="service">ಹಿಂದುಳಿದ ವರ್ಗ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td class="documents">ಆಧಾರ್, ಜಾತಿ / ಶಾಲಾ ದಾಖಲೆ, ಅಗತ್ಯ ದಾಖಲೆಗಳು</td>
+<td><a class="details" href="service-details.html?service=5">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">6</td>
+<td class="service">ಕೃಷಿ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td class="documents">ಆಧಾರ್, RTC / ಪಹಣಿ, ಸಂಬಂಧಿತ ಕೃಷಿ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=6">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">7</td>
+<td class="service">PAN Card ಹೊಸ ಅರ್ಜಿ</td>
+<td class="documents">ಆಧಾರ್, 2 ಪಾಸ್‌ಪೋರ್ಟ್ ಸೈಜ್ ಫೋಟೋ, SSLC ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್</td>
+<td><a class="details" href="service-details.html?service=7">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">8</td>
+<td class="service">PAN Card ತಿದ್ದುಪಡಿ</td>
+<td class="documents">PAN ಕಾರ್ಡ್, ಆಧಾರ್, ತಿದ್ದುಪಡಿ ಅಗತ್ಯವಿರುವ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=8">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">9</td>
+<td class="service">Aadhaar ಸೇವೆಗಳು</td>
+<td class="documents">ಆಧಾರ್ ಸಂಖ್ಯೆ / ಅಗತ್ಯ ಗುರುತಿನ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=9">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">10</td>
+<td class="service">Voter ID ಹೊಸ ನೋಂದಣಿ</td>
+<td class="documents">ಆಧಾರ್ / ಗುರುತಿನ ದಾಖಲೆ, ವಿಳಾಸದ ದಾಖಲೆ, ಫೋಟೋ</td>
+<td><a class="details" href="service-details.html?service=10">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">11</td>
+<td class="service">Voter ID ತಿದ್ದುಪಡಿ</td>
+<td class="documents">Voter ID, ಆಧಾರ್ / ತಿದ್ದುಪಡಿ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=11">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">12</td>
+<td class="service">Voter ID Download</td>
+<td class="documents">EPIC ಸಂಖ್ಯೆ / ಅಗತ್ಯ ವಿವರಗಳು</td>
+<td><a class="details" href="service-details.html?service=12">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">13</td>
+<td class="service">ಬೆಳೆ ವಿಮೆ</td>
+<td class="documents">ಆಧಾರ್, RTC / ಪಹಣಿ, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಅರ್ಜಿ ನಮೂನೆ</td>
+<td><a class="details" href="service-details.html?service=13">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">14</td>
+<td class="service">RTC / ಪಹಣಿ</td>
+<td class="documents">ಸರ್ವೆ ನಂಬರ್ / ಮಾಲೀಕರ ವಿವರಗಳು</td>
+<td><a class="details" href="service-details.html?service=14">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">15</td>
+<td class="service">ಕೃಷಿ ಸಬ್ಸಿಡಿ ಅರ್ಜಿ</td>
+<td class="documents">ಆಧಾರ್, RTC, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಯೋಜನೆಗೆ ಬೇಕಾದ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=15">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">16</td>
+<td class="service">ರೈತ ಯೋಜನೆಗಳು</td>
+<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ವಿವರ, ಜಮೀನು ದಾಖಲೆಗಳು</td>
+<td><a class="details" href="service-details.html?service=16">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">17</td>
+<td class="service">ವೃದ್ಧಾಪ್ಯ ಪಿಂಚಣಿ</td>
+<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ವಯಸ್ಸಿನ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=17">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">18</td>
+<td class="service">ವಿಧವಾ ಪಿಂಚಣಿ</td>
+<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಪತಿಯ ಮರಣ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td><a class="details" href="service-details.html?service=18">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">19</td>
+<td class="service">ಅಂಗವಿಕಲರ ಪಿಂಚಣಿ</td>
+<td class="documents">ಆಧಾರ್, ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ಅಂಗವಿಕಲ ಪ್ರಮಾಣ ಪತ್ರ</td>
+<td><a class="details" href="service-details.html?service=19">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">20</td>
+<td class="service">ವಿದ್ಯಾರ್ಥಿವೇತನ</td>
+<td class="documents">ಆಧಾರ್, ಜಾತಿ / ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ, ಬ್ಯಾಂಕ್ ವಿವರ, ವಿದ್ಯಾರ್ಥಿ ದಾಖಲೆ</td>
+<td><a class="details" href="service-details.html?service=20">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">21</td>
+<td class="service">ಉದ್ಯೋಗ ನೋಂದಣಿ</td>
+<td class="documents">ಆಧಾರ್, ಶಿಕ್ಷಣ ಪ್ರಮಾಣ ಪತ್ರ, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
+<td><a class="details" href="service-details.html?service=21">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">22</td>
+<td class="service">ಸರ್ಕಾರಿ ಉದ್ಯೋಗ ಅರ್ಜಿ</td>
+<td class="documents">ಆಧಾರ್, ಫೋಟೋ, ಸಹಿ, ಶಿಕ್ಷಣ ದಾಖಲೆಗಳು</td>
+<td><a class="details" href="service-details.html?service=22">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">23</td>
+<td class="service">ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ ಯೋಜನೆ</td>
+<td class="documents">ಆಧಾರ್, ಶಿಕ್ಷಣ ದಾಖಲೆ, ಬ್ಯಾಂಕ್ ವಿವರ</td>
+<td><a class="details" href="service-details.html?service=23">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">24</td>
+<td class="service">ವಿದ್ಯುತ್ ಬಿಲ್ ಪಾವತಿ</td>
+<td class="documents">RR ಸಂಖ್ಯೆ / ಗ್ರಾಹಕ ಸಂಖ್ಯೆ</td>
+<td><a class="details" href="service-details.html?service=24">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">25</td>
+<td class="service">ಮೊಬೈಲ್ ರೀಚಾರ್ಜ್</td>
+<td class="documents">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
+<td><a class="details" href="service-details.html?service=25">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">26</td>
+<td class="service">DTH ರೀಚಾರ್ಜ್</td>
+<td class="documents">ಗ್ರಾಹಕ ಸಂಖ್ಯೆ / ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
+<td><a class="details" href="service-details.html?service=26">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">27</td>
+<td class="service">ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆ</td>
+<td class="documents">ಆಧಾರ್ / ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</td>
+<td><a class="details" href="service-details.html?service=27">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">28</td>
+<td class="service">ಹಣ ವರ್ಗಾವಣೆ</td>
+<td class="documents">ಆಧಾರ್ / ಬ್ಯಾಂಕ್ ವಿವರ, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</td>
+<td><a class="details" href="service-details.html?service=28">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">29</td>
+<td class="service">ವಿಮೆ ಸೇವೆಗಳು</td>
+<td class="documents">ಪಾಲಿಸಿ / ಗುರುತಿನ ದಾಖಲೆಗಳು, ಅಗತ್ಯ ವಿವರಗಳು</td>
+<td><a class="details" href="service-details.html?service=29">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+<tr>
+<td class="serial">30</td>
+<td class="service">ಸರ್ಕಾರಿ ಯೋಜನೆಗಳ ಅರ್ಜಿ</td>
+<td class="documents">ಯೋಜನೆಗೆ ಅನುಗುಣವಾಗಿ ಅಗತ್ಯ ದಾಖಲೆಗಳು</td>
+<td><a class="details" href="service-details.html?service=30">📄 ವಿವರಗಳು</a></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+</div>
+
 <footer>
-
-  <h3>VDSKN.IN</h3>
-
-  <p>ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ ಸೇವಾ ಕೇಂದ್ರ</p>
-
-  <p>📞 8095713511</p>
-
-  <p>© 2026 All Rights Reserved</p>
-
+<h3>VDSKN.IN</h3>
+<p>ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ ಸೇವಾ ಕೇಂದ್ರ</p>
+<p>📞 8095713511</p>
+<p>© 2026 All Rights Reserved</p>
 </footer>
 
 <a
-  class="mobile-whatsapp"
-  href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ,%20ನನಗೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು."
-  target="_blank">
-  💬
+class="float-whatsapp"
+href="https://wa.me/918095713511?text=ನಮಸ್ಕಾರ,%20ನನಗೆ%20ಸೇವೆಯ%20ಮಾಹಿತಿ%20ಬೇಕು."
+target="_blank">
+💬
 </a>
 
 <script>
 
 function searchServices(){
 
-  let input =
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase();
+let input=document
+.getElementById("searchInput")
+.value
+.toLowerCase();
 
-  let rows =
-    document.querySelectorAll("#serviceTable tbody tr");
+let rows=document
+.querySelectorAll("#serviceTable tbody tr");
 
-  rows.forEach(function(row){
+rows.forEach(function(row){
 
-    let text =
-      row.innerText.toLowerCase();
+let text=row.innerText.toLowerCase();
 
-    if(text.includes(input)){
-      row.style.display = "";
-    }else{
-      row.style.display = "none";
-    }
+row.style.display =
+text.includes(input) ? "" : "none";
 
-  });
+});
 
 }
 
 </script>
 
 </body>
-              </html>;
+</html>
