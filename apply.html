@@ -1,1 +1,562 @@
+<!DOCTYPE html>
+<html lang="kn">
 
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>VDSKN - Apply Service</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        /* HEADER */
+
+        .header {
+            background: white;
+            padding: 15px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .header h2 {
+            color: #b40000;
+            font-size: 19px;
+        }
+
+        .header p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* PAGE */
+
+        .page-title {
+            background: linear-gradient(135deg,#ff2600,#ff6500);
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 15px;
+        }
+
+        .page-title h1 {
+            font-size: 27px;
+        }
+
+        /* FORM */
+
+        .form-container {
+            max-width: 650px;
+            margin: 25px auto;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* SERVICE */
+
+        .selected-service {
+
+            background: #fff3cd;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            margin-bottom: 20px;
+
+            font-weight: bold;
+        }
+
+        /* DOCUMENT */
+
+        .document-box {
+
+            background: #f1f8ff;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+        }
+
+        .document-box h3 {
+            margin-bottom: 12px;
+        }
+
+        .document-box li {
+            margin: 8px 0;
+        }
+
+        /* SUBMIT */
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 16px;
+
+            background: #198754;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 10px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* BACK */
+
+        .back-btn {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #087de0;
+
+            text-decoration: none;
+        }
+
+        /* SUCCESS */
+
+        .success {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        .success h2 {
+            color: #198754;
+
+            margin-bottom: 15px;
+        }
+
+        .application-number {
+
+            background: #e8f5e9;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin: 15px 0;
+        }
+
+        @media(max-width:600px) {
+
+            .form-container {
+                margin: 15px;
+
+                padding: 20px;
+            }
+
+            .header h2 {
+                font-size: 15px;
+            }
+
+            .page-title h1 {
+                font-size: 23px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <img src="logo.png" alt="VDSKN Logo">
+
+    <div>
+
+        <h2>VDSKN ಡಿಜಿಟಲ್ ಸೇವಾ ಕೇಂದ್ರ</h2>
+
+        <p>ಎಲ್ಲಾ ಆನ್‌ಲೈನ್ ಸೇವೆಗಳು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ</p>
+
+    </div>
+
+</header>
+
+
+<!-- TITLE -->
+
+<section class="page-title">
+
+    <h1>📝 ಸೇವೆಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ</h1>
+
+</section>
+
+
+<!-- FORM -->
+
+<div class="form-container" id="formContainer">
+
+
+    <!-- SELECTED SERVICE -->
+
+    <div class="selected-service">
+
+        📋 ಆಯ್ಕೆ ಮಾಡಿದ ಸೇವೆ:
+
+        <span id="serviceName">
+            ಸೇವೆ ಆಯ್ಕೆ ಮಾಡಲಾಗಿಲ್ಲ
+        </span>
+
+    </div>
+
+
+    <form id="applicationForm">
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+            <label>
+                👤 ಅರ್ಜಿದಾರರ ಪೂರ್ಣ ಹೆಸರು *
+            </label>
+
+            <input
+                type="text"
+                id="applicantName"
+                placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು"
+                required>
+
+        </div>
+
+
+        <!-- MOBILE -->
+
+        <div class="form-group">
+
+            <label>
+                📱 ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *
+            </label>
+
+            <input
+                type="tel"
+                id="mobile"
+                placeholder="10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+                maxlength="10"
+                required>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+            <label>
+                📧 Email ID
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email ID">
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="form-group">
+
+            <label>
+                🏠 ಪೂರ್ಣ ವಿಳಾಸ *
+            </label>
+
+            <textarea
+                id="address"
+                placeholder="ಗ್ರಾಮ, ತಾಲ್ಲೂಕು, ಜಿಲ್ಲೆ"
+                required></textarea>
+
+        </div>
+
+
+        <!-- TALUK -->
+
+        <div class="form-group">
+
+            <label>
+                📍 ತಾಲ್ಲೂಕು
+            </label>
+
+            <input
+                type="text"
+                id="taluk"
+                placeholder="ತಾಲ್ಲೂಕಿನ ಹೆಸರು">
+
+        </div>
+
+
+        <!-- DISTRICT -->
+
+        <div class="form-group">
+
+            <label>
+                📍 ಜಿಲ್ಲೆ
+            </label>
+
+            <input
+                type="text"
+                id="district"
+                placeholder="ಜಿಲ್ಲೆಯ ಹೆಸರು">
+
+        </div>
+
+
+        <!-- DOCUMENT UPLOAD -->
+
+        <div class="form-group">
+
+            <label>
+                📎 ದಾಖಲೆಗಳನ್ನು Upload ಮಾಡಿ
+            </label>
+
+            <input
+                type="file"
+                id="documents"
+                multiple
+                accept=".jpg,.jpeg,.png,.pdf">
+
+            <small>
+                JPG, PNG ಅಥವಾ PDF ಮಾತ್ರ
+            </small>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+            type="submit"
+            class="submit-btn">
+
+            ✅ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ
+
+        </button>
+
+
+    </form>
+
+
+    <a href="services.html" class="back-btn">
+        ← ಎಲ್ಲಾ ಸೇವೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ
+    </a>
+
+
+</div>
+
+
+<!-- SUCCESS -->
+
+<div class="form-container success"
+     id="successBox">
+
+    <h2>✅ ಅರ್ಜಿ ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ!</h2>
+
+    <p>
+        ನಿಮ್ಮ Application Number:
+    </p>
+
+    <div
+        class="application-number"
+        id="applicationNumber">
+    </div>
+
+    <p>
+        ಈ Application Number ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಇಟ್ಟುಕೊಳ್ಳಿ.
+    </p>
+
+    <br>
+
+    <button
+        class="submit-btn"
+        onclick="goHome()">
+
+        🏠 Homeಗೆ ಹೋಗಿ
+
+    </button>
+
+</div>
+
+
+<script>
+
+    /* GET SERVICE NAME */
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const service =
+        params.get("service");
+
+
+    if (service) {
+
+        document.getElementById("serviceName")
+            .textContent = service;
+
+    }
+
+
+    /* FORM SUBMIT */
+
+    document.getElementById("applicationForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            /* MOBILE VALIDATION */
+
+            const mobile =
+                document.getElementById("mobile").value.trim();
+
+
+            if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+
+                alert(
+                    "ದಯವಿಟ್ಟು ಸರಿಯಾದ 10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ."
+                );
+
+                return;
+
+            }
+
+
+            /* APPLICATION NUMBER */
+
+            const applicationNumber =
+                "VDSKN" +
+                Date.now().toString().slice(-8);
+
+
+            document.getElementById(
+                "applicationNumber"
+            ).textContent = applicationNumber;
+
+
+            /* SHOW SUCCESS */
+
+            document.getElementById(
+                "formContainer"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "successBox"
+            ).style.display = "block";
+
+
+        });
+
+
+    /* HOME */
+
+    function goHome() {
+
+        window.location.href =
+            "index.html";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
