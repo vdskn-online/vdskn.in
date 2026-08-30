@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="kn">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,219 +8,362 @@
 <title>VDSKN.IN - Village Digital Seva Kendra</title>
 
 <style>
+
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 body{
+    margin:0;
     font-family:Arial,sans-serif;
-    background:#f5f5f5;
+    background:#f3f4f6;
     color:#222;
 }
 
+/* HEADER */
+
 .header{
     background:white;
-    padding:15px;
     text-align:center;
-    border-bottom:3px solid #ff3300;
+    padding:25px 15px 20px;
 }
 
 .logo{
-    width:80px;
-    height:80px;
+    width:85px;
+    height:85px;
     object-fit:contain;
 }
 
 .header h1{
-    color:#b40000;
     margin:8px 0;
+    color:#b40000;
+    font-size:32px;
 }
 
 .header p{
-    color:#666;
+    margin:0;
+    color:#777;
+    font-size:17px;
 }
 
+/* HERO */
+
 .hero{
-    background:linear-gradient(135deg,#ff2600,#ff6500);
+    background:linear-gradient(90deg,#ff2600,#ff6500);
     color:white;
-    padding:40px 20px;
     text-align:center;
+    padding:40px 20px;
 }
 
 .hero h2{
+    margin:0 0 12px;
     font-size:30px;
-    margin-bottom:15px;
 }
 
 .hero p{
+    margin:0;
     font-size:18px;
-    line-height:1.6;
 }
 
-.buttons{
+/* OPTIONS */
+
+.options{
+    width:94%;
     max-width:900px;
     margin:25px auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:15px;
-    padding:0 15px;
 }
 
-.btn{
-    display:block;
-    text-decoration:none;
-    padding:18px;
+.option{
+    min-height:70px;
     border-radius:12px;
-    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:white;
     font-size:18px;
     font-weight:bold;
-    box-shadow:0 3px 10px rgba(0,0,0,.15);
+    box-shadow:0 4px 10px #ccc;
+    transition:0.2s;
 }
 
+.option:hover{
+    transform:translateY(-3px);
+}
+
+/* COLORS */
+
 .register{
-    background:#ffc107;
-    color:#222;
+    background:#ffbd00;
 }
 
 .login{
-    background:#087de0;
-    color:white;
+    background:#1687df;
 }
 
 .services{
-    background:#198754;
-    color:white;
+    background:#188b59;
 }
 
 .status{
-    background:#6f42c1;
-    color:white;
+    background:#7044c5;
 }
 
-.info{
-    max-width:900px;
-    margin:25px auto;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
-}
-
-.info h2{
-    color:#b40000;
-    margin-bottom:15px;
-}
-
-.info ul{
-    padding-left:25px;
-    line-height:2;
+.admin{
+    background:#333;
 }
 
 .contact{
-    text-align:center;
-    background:#222;
-    color:white;
-    padding:25px;
-    margin-top:30px;
+    background:#d35400;
 }
 
-.contact h3{
-    color:#ffc107;
-    margin-bottom:10px;
+/* CONTENT */
+
+.container{
+    width:94%;
+    max-width:900px;
+    margin:20px auto;
 }
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 3px 12px #ccc;
+}
+
+.card h2{
+    color:#b40000;
+    border-bottom:2px solid #ddd;
+    padding-bottom:10px;
+}
+
+.card li{
+    margin:12px 0;
+    font-size:17px;
+}
+
+/* FOOTER */
 
 .footer{
+    margin-top:35px;
+    background:#222;
+    color:white;
     text-align:center;
-    background:#111;
-    color:#aaa;
-    padding:15px;
-    font-size:14px;
+    padding:30px 15px;
 }
+
+.footer h3{
+    color:#ffd000;
+    margin:0 0 10px;
+}
+
+.phone{
+    font-size:20px;
+    color:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .options{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h2{
+        font-size:24px;
+    }
+
+    .option{
+        font-size:16px;
+        padding:10px;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:28px;
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header class="header">
 
-<img src="logo.png" class="logo" alt="VDSKN Logo">
+<!-- HEADER -->
 
-<h1>VDSKN.IN</h1>
+<div class="header">
 
-<p>ವಿಲೇಜ್ ಡಿಜಿಟಲ್ ಸೇವಾ ಕೇಂದ್ರ</p>
+    <img
+        src="logo.png"
+        class="logo"
+        alt="VDSKN Logo"
+    >
 
-</header>
+    <h1>VDSKN.IN</h1>
 
+    <p>
+        ವಿಲೇಜ್ ಡಿಜಿಟಲ್ ಸೇವಾ ಕೇಂದ್ರ
+    </p>
 
-<section class="hero">
-
-<h2>ನಿಮ್ಮ ಎಲ್ಲಾ ಆನ್‌ಲೈನ್ ಸೇವೆಗಳು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ</h2>
-
-<p>
-ಸರ್ಕಾರಿ ಹಾಗೂ ಸಾರ್ವಜನಿಕ ಸೇವೆಗಳಿಗೆ
-ಸುಲಭವಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.
-</p>
-
-</section>
+</div>
 
 
-<section class="buttons">
+<!-- HERO -->
 
-<a href="apply.html" class="btn register">
-📝 ಹೊಸ ನೋಂದಣಿ
-</a>
+<div class="hero">
 
-<a href="login.html" class="btn login">
-🔐 ಲಾಗಿನ್
-</a>
+    <h2>
+        ನಿಮ್ಮ ಎಲ್ಲಾ ಆನ್‌ಲೈನ್ ಸೇವೆಗಳು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ
+    </h2>
 
-<a href="services.html" class="btn services">
-📋 ಎಲ್ಲಾ ಸೇವೆಗಳು
-</a>
+    <p>
+        ಸರ್ಕಾರಿ ಹಾಗೂ ಸಾರ್ವಜನಿಕ ಸೇವೆಗಳಿಗೆ ಸುಲಭವಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.
+    </p>
 
-<a href="status.html" class="btn status">
-🔎 ಅರ್ಜಿ ಸ್ಥಿತಿ
-</a>
-
-</section>
+</div>
 
 
-<section class="info">
+<!-- ALL OPTIONS -->
 
-<h2>📋 VDSKN ಸೇವೆಗಳು</h2>
+<div class="options">
 
-<ul>
-<li>ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</li>
-<li>ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ</li>
-<li>ಆಧಾರ್ ಸಂಬಂಧಿತ ಸೇವೆಗಳು</li>
-<li>ವಿದ್ಯಾರ್ಥಿ ಸೇವೆಗಳು</li>
-<li>ರೈತರಿಗೆ ಸಂಬಂಧಿಸಿದ ಸೇವೆಗಳು</li>
-<li>ಕಂದಾಯ ಇಲಾಖೆಯ ಸೇವೆಗಳು</li>
-<li>ಆನ್‌ಲೈನ್ ಅರ್ಜಿ ಸೇವೆಗಳು</li>
-<li>ಇತರೆ ಡಿಜಿಟಲ್ ಸೇವೆಗಳು</li>
-</ul>
-
-</section>
+    <a
+        href="register.html"
+        class="option register"
+    >
+        📝 ಹೊಸ ನೋಂದಣಿ
+    </a>
 
 
-<section class="contact">
-
-<h3>📞 ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಪರ್ಕಿಸಿ</h3>
-
-<p>ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ / VDSKN</p>
-
-<p>📱 8095713511</p>
-
-</section>
+    <a
+        href="login.html"
+        class="option login"
+    >
+        🔐 ಲಾಗಿನ್
+    </a>
 
 
-<footer class="footer">
+    <a
+        href="services.html"
+        class="option services"
+    >
+        📋 ಎಲ್ಲಾ ಸೇವೆಗಳು
+    </a>
 
-© 2026 VDSKN.IN - Village Digital Seva Kendra
 
-</footer>
+    <a
+        href="status.html"
+        class="option status"
+    >
+        🔎 ಅರ್ಜಿ ಸ್ಥಿತಿ
+    </a>
+
+
+    <a
+        href="admin-login.html"
+        class="option admin"
+    >
+        ⚙️ Admin
+    </a>
+
+
+    <a
+        href="tel:8095713511"
+        class="option contact"
+    >
+        📞 ಸಂಪರ್ಕಿಸಿ
+    </a>
+
+</div>
+
+
+<!-- SERVICES INFORMATION -->
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>
+            📋 VDSKN ಸೇವೆಗಳು
+        </h2>
+
+        <ul>
+
+            <li>
+                ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ
+            </li>
+
+            <li>
+                ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ
+            </li>
+
+            <li>
+                ಆಧಾರ್ ಸಂಬಂಧಿತ ಸೇವೆಗಳು
+            </li>
+
+            <li>
+                ಶಿಕ್ಷಣ ಸೇವೆಗಳು
+            </li>
+
+            <li>
+                ರೈತರಿಗೆ ಸಂಬಂಧಿಸಿದ ಸೇವೆಗಳು
+            </li>
+
+            <li>
+                ಕಾರ್ಮಿಕ ಇಲಾಖೆಯ ಸೇವೆಗಳು
+            </li>
+
+            <li>
+                ಆರೋಗ್ಯ ಇಲಾಖೆಯ ಸೇವೆಗಳು
+            </li>
+
+            <li>
+                ಇತರೆ ಡಿಜಿಟಲ್ ಸೇವೆಗಳು
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <h3>
+        📞 ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಸಂಪರ್ಕಿಸಿ
+    </h3>
+
+    <p>
+        ನಿಡಗುಂದಿ ಗ್ರಾಮ ಒನ್ / VDSKN
+    </p>
+
+    <div class="phone">
+        📱 8095713511
+    </div>
+
+    <p>
+        © 2026 VDSKN.IN
+    </p>
+
+</div>
 
 
 </body>
