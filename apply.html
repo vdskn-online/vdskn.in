@@ -1,1 +1,680 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>VDSKN - ಸೇವೆಗೆ ಅರ್ಜಿ</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f4f6;
+    color:#222;
+}
+
+.header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+.header h1{
+    margin:0;
+    color:#ffd400;
+    font-size:32px;
+}
+
+.header p{
+    margin:8px 0;
+}
+
+.header h2{
+    margin:12px 0 0;
+}
+
+.container{
+    width:95%;
+    max-width:750px;
+    margin:25px auto;
+}
+
+.card{
+    background:white;
+    padding:22px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 3px 12px #ccc;
+}
+
+.card h2{
+    color:#b8860b;
+    border-bottom:2px solid #b8860b;
+    padding-bottom:10px;
+    margin-top:0;
+}
+
+.service{
+    background:#b8860b;
+    color:white;
+    padding:16px;
+    border-radius:8px;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.documents{
+    background:#fff8dc;
+    border-left:5px solid #b8860b;
+    padding:15px;
+    border-radius:7px;
+}
+
+.documents li{
+    margin:8px 0;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:7px;
+    font-size:16px;
+}
+
+textarea{
+    min-height:90px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:18px;
+}
+
+.submit{
+    background:#128c7e;
+    color:white;
+}
+
+.back{
+    background:#333;
+    color:white;
+}
+
+.success{
+    display:none;
+    background:#e8f5e9;
+    border:2px solid #2e7d32;
+    color:#1b5e20;
+    padding:18px;
+    border-radius:10px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.appid{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.file-name{
+    margin-top:8px;
+    color:#555;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>VDSKN.IN</h1>
+
+<p>Village Digital Seva Kendra</p>
+
+<h2>📝 ಸೇವೆಗೆ ಅರ್ಜಿ</h2>
+
+</div>
+
+
+<div class="container">
+
+
+<!-- SUCCESS -->
+
+<div id="success" class="success">
+
+    <div>✅ ಅರ್ಜಿ ಯಶಸ್ವಿಯಾಗಿ ಸಿದ್ಧವಾಗಿದೆ!</div>
+
+    <p>ನಿಮ್ಮ Application ID:</p>
+
+    <div id="applicationId" class="appid"></div>
+
+    <p>WhatsApp ಮೂಲಕ ಅರ್ಜಿ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...</p>
+
+</div>
+
+
+<!-- SERVICE -->
+
+<div class="card">
+
+<h2>📌 ಆಯ್ಕೆ ಮಾಡಿದ ಸೇವೆ</h2>
+
+<div id="serviceName" class="service">
+ಸೇವೆ ಲೋಡ್ ಆಗುತ್ತಿದೆ...
+</div>
+
+</div>
+
+
+<!-- DOCUMENTS -->
+
+<div class="card">
+
+<h2>📄 ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h2>
+
+<div class="documents">
+
+<ul id="documents">
+
+<li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+<li>ಮೊಬೈಲ್ ನಂಬರ್</li>
+<li>ಸಂಬಂಧಿತ ದಾಖಲೆಗಳು</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- FORM -->
+
+<div class="card">
+
+<h2>👤 ಅರ್ಜಿದಾರರ ವಿವರ</h2>
+
+
+<label>ಅರ್ಜಿದಾರರ ಪೂರ್ಣ ಹೆಸರು *</label>
+
+<input
+type="text"
+id="name"
+placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು"
+>
+
+
+<label>ಮೊಬೈಲ್ ನಂಬರ್ *</label>
+
+<input
+type="tel"
+id="mobile"
+maxlength="10"
+placeholder="10 ಅಂಕಿಯ ಮೊಬೈಲ್ ನಂಬರ್"
+>
+
+
+<label>ಆಧಾರ್ ನಂಬರ್</label>
+
+<input
+type="text"
+id="aadhaar"
+maxlength="12"
+placeholder="12 ಅಂಕಿಯ ಆಧಾರ್ ನಂಬರ್"
+>
+
+
+<label>ವಿಳಾಸ</label>
+
+<textarea
+id="address"
+placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ವಿಳಾಸ"
+></textarea>
+
+
+<label>ಜಿಲ್ಲೆ</label>
+
+<input
+type="text"
+id="district"
+placeholder="ಜಿಲ್ಲೆ"
+>
+
+
+<label>ತಾಲೂಕು</label>
+
+<input
+type="text"
+id="taluk"
+placeholder="ತಾಲೂಕು"
+>
+
+
+<label>ಗ್ರಾಮ</label>
+
+<input
+type="text"
+id="village"
+placeholder="ಗ್ರಾಮ"
+>
+
+
+<label>ದಾಖಲೆ ಆಯ್ಕೆ</label>
+
+<input
+type="file"
+id="documentFile"
+multiple
+accept=".pdf,.jpg,.jpeg,.png"
+onchange="showFiles()"
+>
+
+<div id="fileName" class="file-name">
+ಯಾವುದೇ ದಾಖಲೆ ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ
+</div>
+
+
+<label>ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ</label>
+
+<textarea
+id="message"
+placeholder="ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ"
+></textarea>
+
+
+<button
+class="submit"
+onclick="submitApplication()"
+>
+📲 ಅರ್ಜಿ Submit ಮಾಡಿ
+</button>
+
+</div>
+
+
+<!-- BACK -->
+
+<div class="card">
+
+<button
+class="back"
+onclick="goBack()"
+>
+← ಎಲ್ಲಾ ಸೇವೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ
+</button>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* =========================
+   SERVICE
+========================= */
+
+let service =
+localStorage.getItem("selectedService");
+
+if(!service){
+
+    service = "ಸೇವೆ ಆಯ್ಕೆ ಮಾಡಲಾಗಿಲ್ಲ";
+
+}
+
+document.getElementById("serviceName").innerText =
+service;
+
+
+/* =========================
+   DOCUMENTS
+========================= */
+
+const documentData = {
+
+"ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ರೇಷನ್ ಕಾರ್ಡ್",
+"ಶಾಲಾ ದಾಖಲೆ / LC",
+"ಮೊಬೈಲ್ ನಂಬರ್"
+],
+
+"ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ರೇಷನ್ ಕಾರ್ಡ್",
+"ಆದಾಯದ ದಾಖಲೆ",
+"ಮೊಬೈಲ್ ನಂಬರ್"
+],
+
+"ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ರೇಷನ್ ಕಾರ್ಡ್",
+"ವಿಳಾಸದ ದಾಖಲೆ",
+"ಮೊಬೈಲ್ ನಂಬರ್"
+],
+
+"RTC / ಪಹಣಿ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಸರ್ವೆ ನಂಬರ್",
+"ಜಮೀನಿನ ವಿವರ",
+"ಮೊಬೈಲ್ ನಂಬರ್"
+],
+
+"ಆಧಾರ್ ಸೇವೆಗಳು":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಮೊಬೈಲ್ ನಂಬರ್",
+"ಸಂಬಂಧಿತ ದಾಖಲೆ"
+],
+
+"PAN ಸೇವೆಗಳು":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಮೊಬೈಲ್ ನಂಬರ್",
+"ಇಮೇಲ್ ID",
+"ಫೋಟೋ"
+]
+
+};
+
+
+function showDocuments(){
+
+let list =
+document.getElementById("documents");
+
+list.innerHTML="";
+
+let docs =
+documentData[service];
+
+if(!docs){
+
+docs=[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಮೊಬೈಲ್ ನಂಬರ್",
+"ಸಂಬಂಧಿತ ದಾಖಲೆಗಳು",
+"ಇತರೆ ಅಗತ್ಯ ದಾಖಲೆಗಳು"
+];
+
+}
+
+docs.forEach(function(doc){
+
+let li =
+document.createElement("li");
+
+li.innerText=doc;
+
+list.appendChild(li);
+
+});
+
+}
+
+showDocuments();
+
+
+/* =========================
+   FILE NAME
+========================= */
+
+function showFiles(){
+
+let files =
+document.getElementById("documentFile").files;
+
+let output="";
+
+if(files.length===0){
+
+output="ಯಾವುದೇ ದಾಖಲೆ ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ";
+
+}else{
+
+for(let i=0;i<files.length;i++){
+
+output +=
+"📄 " + files[i].name + "<br>";
+
+}
+
+}
+
+document.getElementById("fileName").innerHTML =
+output;
+
+}
+
+
+/* =========================
+   APPLICATION ID
+========================= */
+
+function generateApplicationId(){
+
+let date =
+new Date();
+
+let year =
+date.getFullYear();
+
+let random =
+Math.floor(100000 + Math.random()*900000);
+
+return "VDSKN-" + year + "-" + random;
+
+}
+
+
+/* =========================
+   SUBMIT
+========================= */
+
+function submitApplication(){
+
+let name =
+document.getElementById("name").value.trim();
+
+let mobile =
+document.getElementById("mobile").value.trim();
+
+let aadhaar =
+document.getElementById("aadhaar").value.trim();
+
+let address =
+document.getElementById("address").value.trim();
+
+let district =
+document.getElementById("district").value.trim();
+
+let taluk =
+document.getElementById("taluk").value.trim();
+
+let village =
+document.getElementById("village").value.trim();
+
+let message =
+document.getElementById("message").value.trim();
+
+
+/* VALIDATION */
+
+if(name===""){
+
+alert("ಅರ್ಜಿದಾರರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.");
+
+return;
+
+}
+
+
+if(!/^[6-9][0-9]{9}$/.test(mobile)){
+
+alert("ಸರಿಯಾದ 10 ಅಂಕಿಯ ಮೊಬೈಲ್ ನಂಬರ್ ನಮೂದಿಸಿ.");
+
+return;
+
+}
+
+
+/* APPLICATION ID */
+
+let applicationId =
+generateApplicationId();
+
+
+/* FILES */
+
+let files =
+document.getElementById("documentFile").files;
+
+let fileText =
+"ದಾಖಲೆಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ";
+
+if(files.length>0){
+
+fileText="";
+
+for(let i=0;i<files.length;i++){
+
+fileText +=
+"📄 "+files[i].name+"\n";
+
+}
+
+}
+
+
+/* WHATSAPP MESSAGE */
+
+let text =
+`*VDSKN.IN - ಹೊಸ ಅರ್ಜಿ*
+
+🆔 *Application ID:*
+${applicationId}
+
+📌 *ಸೇವೆ:*
+${service}
+
+👤 *ಹೆಸರು:*
+${name}
+
+📱 *ಮೊಬೈಲ್:*
+${mobile}
+
+🪪 *ಆಧಾರ್:*
+${aadhaar || "ನೀಡಲಾಗಿಲ್ಲ"}
+
+🏠 *ವಿಳಾಸ:*
+${address || "ನೀಡಲಾಗಿಲ್ಲ"}
+
+📍 *ಜಿಲ್ಲೆ:*
+${district || "ನೀಡಲಾಗಿಲ್ಲ"}
+
+📍 *ತಾಲೂಕು:*
+${taluk || "ನೀಡಲಾಗಿಲ್ಲ"}
+
+📍 *ಗ್ರಾಮ:*
+${village || "ನೀಡಲಾಗಿಲ್ಲ"}
+
+📄 *ದಾಖಲೆಗಳು:*
+${fileText}
+
+📝 *ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ:*
+${message || "ಇಲ್ಲ"}
+
+*VDSKN.IN*
+Village Digital Seva Kendra`;
+
+
+/* SAVE APPLICATION */
+
+localStorage.setItem(
+"applicationId",
+applicationId
+);
+
+localStorage.setItem(
+"applicantName",
+name
+);
+
+localStorage.setItem(
+"applicantMobile",
+mobile
+);
+
+
+/* SUCCESS */
+
+document.getElementById(
+"applicationId"
+).innerText = applicationId;
+
+document.getElementById(
+"success"
+).style.display="block";
+
+
+/* WHATSAPP */
+
+let whatsappNumber =
+"918095713511";
+
+let url =
+"https://wa.me/" +
+whatsappNumber +
+"?text=" +
+encodeURIComponent(text);
+
+
+setTimeout(function(){
+
+window.open(url,"_blank");
+
+},1000);
+
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+function goBack(){
+
+window.location.href =
+"services.html";
+
+}
+
+</script>
+
+</body>
+</html>
