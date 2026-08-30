@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VDSKN - Admin Login</title>
+<title>VDSKN Admin Login</title>
 
 <style>
 *{
@@ -21,46 +21,45 @@ body{
     background:#111;
     color:white;
     text-align:center;
-    padding:35px 20px;
+    padding:30px 15px;
 }
 
 .header h1{
-    margin:0;
     color:#ffd000;
+    margin:0;
     font-size:32px;
 }
 
 .header p{
     margin:8px 0 0;
-    font-size:17px;
+    font-size:18px;
 }
 
-.login-box{
-    width:90%;
+.container{
     max-width:450px;
     margin:50px auto;
-    background:white;
     padding:30px;
+    background:white;
     border-radius:15px;
-    box-shadow:0 4px 18px #ccc;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.login-box h2{
+h2{
     text-align:center;
     color:#b8860b;
-    margin-top:0;
+    margin-bottom:25px;
 }
 
 label{
     display:block;
     font-weight:bold;
-    margin-top:20px;
+    margin-top:15px;
+    margin-bottom:7px;
 }
 
 input{
     width:100%;
     padding:14px;
-    margin-top:8px;
     border:1px solid #ccc;
     border-radius:8px;
     font-size:16px;
@@ -68,8 +67,8 @@ input{
 
 button{
     width:100%;
-    padding:15px;
     margin-top:25px;
+    padding:14px;
     border:0;
     border-radius:8px;
     background:#b8860b;
@@ -83,15 +82,22 @@ button:hover{
     background:#946f08;
 }
 
-.back{
-    background:#333;
+#error{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    background:#ffe0e0;
+    color:red;
+    border-radius:8px;
+    text-align:center;
 }
 
-#error{
-    color:red;
+.back{
+    display:block;
     text-align:center;
-    margin-top:15px;
-    font-weight:bold;
+    margin-top:20px;
+    color:#333;
+    text-decoration:none;
 }
 </style>
 </head>
@@ -103,74 +109,73 @@ button:hover{
     <p>Village Digital Seva Kendra</p>
 </div>
 
-<div class="login-box">
+<div class="container">
 
-    <h2>🔐 Admin Login</h2>
+<h2>🔐 Admin Login</h2>
 
-    <label>Admin Username</label>
-    <input
-        type="text"
-        id="username"
-        placeholder="Username"
-    >
+<form onsubmit="adminLogin(event)">
 
-    <label>Admin Password</label>
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-    >
+<label>👤 Admin Username</label>
 
-    <button onclick="login()">
-        🔐 Login
-    </button>
+<input
+type="text"
+id="username"
+placeholder="Username ನಮೂದಿಸಿ"
+required>
 
-    <p id="error"></p>
+<label>🔑 Password</label>
 
-    <button class="back" onclick="goBack()">
-        ← Websiteಗೆ ಹಿಂತಿರುಗಿ
-    </button>
+<input
+type="password"
+id="password"
+placeholder="Password ನಮೂದಿಸಿ"
+required>
+
+<button type="submit">
+🔐 Admin Login
+</button>
+
+</form>
+
+<div id="error">
+❌ Username ಅಥವಾ Password ತಪ್ಪಾಗಿದೆ
+</div>
+
+<a class="back" href="index.html">
+← Websiteಗೆ ಹಿಂದಿರುಗಿ
+</a>
 
 </div>
 
 <script>
 
-function login(){
+function adminLogin(event){
 
-    const username =
-        document.getElementById("username").value.trim();
+event.preventDefault();
 
-    const password =
-        document.getElementById("password").value;
+let username =
+document.getElementById("username").value;
 
-    /*
-      ಈಗ temporary login
-      ನಂತರ ಇದನ್ನು secure admin systemಗೆ
-      connect ಮಾಡುತ್ತೇವೆ.
-    */
+let password =
+document.getElementById("password").value;
 
-    if(username === "admin" && password === "1234"){
+/*
+   ಈಗ ಪರೀಕ್ಷೆಗಾಗಿ:
+   Username: admin
+   Password: 1234
+*/
 
-        localStorage.setItem(
-            "vds_kn_admin",
-            "true"
-        );
+if(username === "admin" && password === "1234"){
 
-        window.location.href =
-            "admin.html";
+localStorage.setItem("adminLogin","true");
 
-    }else{
+window.location.href="admin.html";
 
-        document.getElementById("error").innerText =
-            "❌ Username ಅಥವಾ Password ತಪ್ಪಾಗಿದೆ";
+}else{
 
-    }
+document.getElementById("error").style.display="block";
+
 }
-
-function goBack(){
-
-    window.location.href =
-        "index.html";
 
 }
 
