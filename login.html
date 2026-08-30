@@ -4,79 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VDSKN Login</title>
+<title>VDSKN.IN - Login</title>
 
 <style>
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f3f4f6;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-box{
-    width:360px;
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.15);
-    text-align:center;
+.login-box {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    text-align: center;
 }
 
-.logo{
-    width:90px;
-    height:90px;
-    object-fit:contain;
-    margin-bottom:10px;
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
-h1{
-    color:#c40000;
-    margin:5px 0;
+h1 {
+    color: #b00000;
+    margin-bottom: 5px;
 }
 
-.subtitle{
-    color:#666;
-    margin-bottom:25px;
+.subtitle {
+    color: #777;
+    margin-bottom: 25px;
 }
 
-input{
-    width:100%;
-    padding:14px;
-    margin:8px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
+label {
+    display: block;
+    text-align: left;
+    margin: 12px 0 6px;
+    font-weight: bold;
 }
 
-button{
-    width:100%;
-    padding:14px;
-    margin-top:15px;
-    border:0;
-    border-radius:8px;
-    background:#087fdb;
-    color:white;
-    font-size:17px;
-    cursor:pointer;
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
-button:hover{
-    background:#056bb8;
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 22px;
+    border: none;
+    border-radius: 8px;
+    background: #087ee1;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.back{
-    display:block;
-    margin-top:20px;
-    text-decoration:none;
-    color:#555;
+.login-btn:hover {
+    background: #0568bd;
+}
+
+.back-btn {
+    display: block;
+    margin-top: 18px;
+    color: #b00000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.message {
+    margin-top: 15px;
+    font-weight: bold;
 }
 </style>
 </head>
@@ -89,58 +104,75 @@ button:hover{
 
     <h1>VDSKN.IN</h1>
 
-    <div class="subtitle">
-        🔐 ಬಳಕೆದಾರರ ಲಾಗಿನ್
-    </div>
+    <p class="subtitle">
+        Village Digital Seva Kendra
+    </p>
 
-    <input type="text" id="username"
-           placeholder="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ / Username">
+    <form onsubmit="loginUser(event)">
 
-    <input type="password" id="password"
-           placeholder="Password">
+        <label>📱 ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</label>
+        <input
+            type="tel"
+            id="mobile"
+            placeholder="ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+            maxlength="10"
+            required
+        >
 
-    <button onclick="login()">
-        🔐 ಲಾಗಿನ್
-    </button>
+        <label>🔐 ಪಾಸ್‌ವರ್ಡ್</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ"
+            required
+        >
 
-    <a href="index.html" class="back">
-        ← Homeಗೆ ಹಿಂತಿರುಗಿ
+        <button type="submit" class="login-btn">
+            🔓 ಲಾಗಿನ್
+        </button>
+
+    </form>
+
+    <div id="message" class="message"></div>
+
+    <a href="index.html" class="back-btn">
+        ← ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ
     </a>
 
 </div>
 
 <script>
 
-function login(){
+function loginUser(event) {
 
-    var username =
-        document.getElementById("username").value;
+    event.preventDefault();
 
-    var password =
-        document.getElementById("password").value;
-
-    if(username === "" || password === ""){
-        alert("ದಯವಿಟ್ಟು Username ಮತ್ತು Password ನಮೂದಿಸಿ.");
-        return;
-    }
+    const mobile = document.getElementById("mobile").value;
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
 
     /*
-      ಈಗ testingಗಾಗಿ ಮಾತ್ರ.
-      ಮುಂದೆ database/login system connect ಮಾಡುತ್ತೇವೆ.
+      Demo Login
+
+      Mobile: 1234567890
+      Password: 123456
     */
 
-    if(username === "admin" && password === "1234"){
+    if (mobile === "1234567890" && password === "123456") {
 
-        alert("Login ಯಶಸ್ವಿಯಾಗಿದೆ!");
+        message.style.color = "green";
+        message.innerHTML = "✅ Login ಯಶಸ್ವಿಯಾಗಿದೆ...";
 
-        window.location.href = "dashboard.html";
+        setTimeout(function() {
+            window.location.href = "dashboard.html";
+        }, 1000);
 
-    }else{
+    } else {
 
-        alert("Username ಅಥವಾ Password ತಪ್ಪಾಗಿದೆ.");
+        message.style.color = "red";
+        message.innerHTML = "❌ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್ ತಪ್ಪಾಗಿದೆ.";
 
     }
-
 }
 
 </script>
