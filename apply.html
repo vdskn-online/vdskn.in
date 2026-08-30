@@ -317,6 +317,18 @@ window.open(whatsapp,"_blank");
 
 }
 
+<script>
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    const service = localStorage.getItem("selectedService");
+
+    if (service) {
+        document.getElementById("selectedService").value = service;
+    }
+
+});
+
 </script>
 
 </body>
