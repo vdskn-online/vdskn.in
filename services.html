@@ -257,52 +257,46 @@ Apply
 </div>
 
 </div>
-
-
 <script>
 
 function apply(service) {
+
     localStorage.setItem("selectedService", service);
-    window.location.href = "apply.html";
+
+    window.location.href = "./apply.html";
+
 }
+
 
 function searchService() {
-
-    let input = document.getElementById("search").value.toLowerCase();
-
-    let services = document.getElementsByClassName("service");
-
-    for (let i = 0; i < services.length; i++) {
-
-        let text = services[i].innerText.toLowerCase();
-
-        services[i].style.display =
-            text.includes(input) ? "" : "none";
-    }
-}
-
-</script>
-
-
-function searchService(){
 
     let input = document
         .getElementById("search")
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
 
-    let services = document
-        .getElementsByClassName("service");
+    let services =
+        document.getElementsByClassName("service");
 
-    for(let i=0;i<services.length;i++){
 
-        let text = services[i]
-            .innerText
-            .toLowerCase();
+    for (let i = 0; i < services.length; i++) {
 
-        services[i].style.display =
-            text.includes(input) ? "flex" : "none";
+        let text =
+            services[i].innerText.toLowerCase();
+
+        if (text.includes(input)) {
+
+            services[i].style.display = "flex";
+
+        } else {
+
+            services[i].style.display = "none";
+
+        }
+
     }
+
 }
 
 </script>
