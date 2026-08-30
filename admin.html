@@ -1,1 +1,486 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>VDSKN - Admin Service Management</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f4f6;
+}
+
+.header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+.header h1{
+    margin:0;
+    color:#ffd000;
+}
+
+.container{
+    width:95%;
+    max-width:900px;
+    margin:25px auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 3px 12px #ccc;
+}
+
+h2{
+    color:#b8860b;
+    border-bottom:2px solid #b8860b;
+    padding-bottom:10px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:15px;
+    margin-bottom:6px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:7px;
+    font-size:16px;
+}
+
+textarea{
+    min-height:100px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:7px;
+    margin-top:15px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add{
+    background:#129b87;
+    color:white;
+}
+
+.clear{
+    background:#777;
+    color:white;
+}
+
+.delete{
+    background:#d9534f;
+    color:white;
+}
+
+.edit{
+    background:#b8860b;
+    color:white;
+}
+
+.service{
+    background:#fff8dc;
+    padding:15px;
+    border-left:5px solid #b8860b;
+    margin-top:15px;
+    border-radius:7px;
+}
+
+.service h3{
+    margin-top:0;
+    color:#8a6500;
+}
+
+.service p{
+    line-height:1.6;
+}
+
+.small-btn{
+    width:48%;
+    display:inline-block;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>VDSKN.IN</h1>
+    <p>Admin Service Management</p>
+</div>
+
+<div class="container">
+
+<!-- ADD / EDIT SERVICE -->
+
+<div class="card">
+
+<h2>➕ ಸೇವೆ ಸೇರಿಸಿ / ✏️ ಬದಲಾಯಿಸಿ</h2>
+
+<label>Serial Number</label>
+<input
+    type="number"
+    id="serial"
+    placeholder="ಉದಾ: 1"
+>
+
+<label>ಸೇವೆಯ ಹೆಸರು *</label>
+<input
+    type="text"
+    id="serviceName"
+    placeholder="ಉದಾ: ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ"
+>
+
+<label>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು *</label>
+<textarea
+    id="documents"
+    placeholder="ಪ್ರತಿ ದಾಖಲೆಯನ್ನು ಹೊಸ ಸಾಲಿನಲ್ಲಿ ಬರೆಯಿರಿ&#10;ಆಧಾರ್ ಕಾರ್ಡ್&#10;ರೇಷನ್ ಕಾರ್ಡ್&#10;ಶಾಲಾ LC"
+></textarea>
+
+<label>ಅರ್ಜಿ ಶುಲ್ಕ</label>
+<input
+    type="text"
+    id="fee"
+    placeholder="ಉದಾ: ₹50"
+>
+
+<label>ಸೇವೆಯ ಸಮಯ</label>
+<input
+    type="text"
+    id="time"
+    placeholder="ಉದಾ: 7 ದಿನಗಳು"
+>
+
+<label>ಸೇವೆಯ ವಿವರಣೆ</label>
+<textarea
+    id="description"
+    placeholder="ಸೇವೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿ"
+></textarea>
+
+<button
+    class="add"
+    onclick="saveService()"
+>
+    💾 Save Service
+</button>
+
+<button
+    class="clear"
+    onclick="clearForm()"
+>
+    🔄 Clear
+</button>
+
+</div>
+
+
+<!-- SERVICE LIST -->
+
+<div class="card">
+
+<h2>📋 ಎಲ್ಲಾ ಸೇವೆಗಳು</h2>
+
+<div id="serviceList"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let services =
+JSON.parse(localStorage.getItem("vdsServices")) || [];
+
+let editIndex = -1;
+
+
+/* =========================
+   SAVE SERVICE
+========================= */
+
+function saveService(){
+
+    let serial =
+        document.getElementById("serial").value.trim();
+
+    let name =
+        document.getElementById("serviceName").value.trim();
+
+    let documents =
+        document.getElementById("documents").value.trim();
+
+    let fee =
+        document.getElementById("fee").value.trim();
+
+    let time =
+        document.getElementById("time").value.trim();
+
+    let description =
+        document.getElementById("description").value.trim();
+
+
+    if(name === ""){
+
+        alert("ಸೇವೆಯ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.");
+        return;
+
+    }
+
+    if(documents === ""){
+
+        alert("ಬೇಕಾಗುವ ದಾಖಲೆಗಳನ್ನು ನಮೂದಿಸಿ.");
+        return;
+
+    }
+
+
+    let service = {
+
+        serial: serial || services.length + 1,
+
+        name: name,
+
+        documents: documents,
+
+        fee: fee,
+
+        time: time,
+
+        description: description
+
+    };
+
+
+    if(editIndex === -1){
+
+        services.push(service);
+
+        alert("✅ ಹೊಸ Service ಸೇರಿಸಲಾಗಿದೆ.");
+
+    }else{
+
+        services[editIndex] = service;
+
+        alert("✅ Service Update ಮಾಡಲಾಗಿದೆ.");
+
+        editIndex = -1;
+
+    }
+
+
+    localStorage.setItem(
+        "vdsServices",
+        JSON.stringify(services)
+    );
+
+
+    clearForm();
+
+    displayServices();
+
+}
+
+
+/* =========================
+   DISPLAY SERVICES
+========================= */
+
+function displayServices(){
+
+    let list =
+        document.getElementById("serviceList");
+
+    list.innerHTML = "";
+
+
+    if(services.length === 0){
+
+        list.innerHTML =
+            "<p>ಯಾವುದೇ Service ಇಲ್ಲ.</p>";
+
+        return;
+
+    }
+
+
+    services.forEach(function(service,index){
+
+        let docs =
+            service.documents
+            .split("\n")
+            .filter(x => x.trim() !== "")
+            .map(x => "• " + x)
+            .join("<br>");
+
+
+        list.innerHTML += `
+
+        <div class="service">
+
+            <h3>
+                ${service.serial}. ${service.name}
+            </h3>
+
+            <p>
+                <b>📄 ಬೇಕಾಗುವ ದಾಖಲೆಗಳು:</b><br>
+                ${docs}
+            </p>
+
+            <p>
+                <b>💰 ಶುಲ್ಕ:</b>
+                ${service.fee || "ಮಾಹಿತಿ ಇಲ್ಲ"}
+            </p>
+
+            <p>
+                <b>⏱️ ಸಮಯ:</b>
+                ${service.time || "ಮಾಹಿತಿ ಇಲ್ಲ"}
+            </p>
+
+            <p>
+                <b>📝 ವಿವರಣೆ:</b><br>
+                ${service.description || "ಮಾಹಿತಿ ಇಲ್ಲ"}
+            </p>
+
+            <button
+                class="edit small-btn"
+                onclick="editService(${index})"
+            >
+                ✏️ Edit
+            </button>
+
+            <button
+                class="delete small-btn"
+                onclick="deleteService(${index})"
+            >
+                🗑️ Delete
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+function editService(index){
+
+    let service =
+        services[index];
+
+    document.getElementById("serial").value =
+        service.serial;
+
+    document.getElementById("serviceName").value =
+        service.name;
+
+    document.getElementById("documents").value =
+        service.documents;
+
+    document.getElementById("fee").value =
+        service.fee;
+
+    document.getElementById("time").value =
+        service.time;
+
+    document.getElementById("description").value =
+        service.description;
+
+    editIndex = index;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+function deleteService(index){
+
+    if(
+        confirm(
+            "ಈ Service ಅನ್ನು Delete ಮಾಡಬೇಕೇ?"
+        )
+    ){
+
+        services.splice(index,1);
+
+        localStorage.setItem(
+            "vdsServices",
+            JSON.stringify(services)
+        );
+
+        displayServices();
+
+    }
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearForm(){
+
+    document.getElementById("serial").value = "";
+
+    document.getElementById("serviceName").value = "";
+
+    document.getElementById("documents").value = "";
+
+    document.getElementById("fee").value = "";
+
+    document.getElementById("time").value = "";
+
+    document.getElementById("description").value = "";
+
+    editIndex = -1;
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+displayServices();
+
+</script>
+
+</body>
+</html>
