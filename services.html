@@ -1,1 +1,291 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>VDSKN - ಎಲ್ಲಾ ಸೇವೆಗಳು</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f4f6;
+}
+
+.header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.header h1{
+    color:#ffd700;
+    margin:5px;
+}
+
+.container{
+    max-width:1100px;
+    margin:20px auto;
+    padding:15px;
+}
+
+.search{
+    width:100%;
+    padding:15px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:17px;
+    margin-bottom:20px;
+}
+
+.category{
+    background:white;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 3px 10px #ccc;
+    overflow:hidden;
+}
+
+.category h2{
+    margin:0;
+    padding:15px;
+    background:#b8860b;
+    color:white;
+}
+
+.service{
+    padding:14px 18px;
+    border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.service:last-child{
+    border-bottom:0;
+}
+
+.service button{
+    background:#1677d2;
+    color:white;
+    border:0;
+    padding:8px 14px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin:25px;
+}
+
+.back button{
+    background:#333;
+    color:white;
+    border:0;
+    padding:12px 25px;
+    border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>VDSKN.IN</h1>
+    <p>Village Digital Seva Kendra</p>
+    <h2>📋 ಎಲ್ಲಾ ಸೇವೆಗಳು</h2>
+</div>
+
+<div class="container">
+
+<input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="🔍 ಸೇವೆಯನ್ನು ಹುಡುಕಿ..."
+    onkeyup="searchService()"
+>
+
+<div class="category">
+<h2>🏛️ ಕಂದಾಯ ಇಲಾಖೆ</h2>
+
+<div class="service">
+<span>ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ</span>
+<button onclick="apply('ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ')">Apply</button>
+</div>
+
+<div class="service">
+<span>ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</span>
+<button onclick="apply('ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ')">Apply</button>
+</div>
+
+<div class="service">
+<span>ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ</span>
+<button onclick="apply('ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ')">Apply</button>
+</div>
+
+<div class="service">
+<span>ಜಮೀನು ದಾಖಲೆ ಸೇವೆಗಳು</span>
+<button onclick="apply('ಜಮೀನು ದಾಖಲೆ ಸೇವೆಗಳು')">Apply</button>
+</div>
+
+<div class="service">
+<span>RTC / ಪಹಣಿ</span>
+<button onclick="apply('RTC / ಪಹಣಿ')">Apply</button>
+</div>
+
+</div>
+
+
+<div class="category">
+<h2>🪪 ಆಧಾರ್ & PAN</h2>
+
+<div class="service">
+<span>ಆಧಾರ್ ಸೇವೆಗಳು</span>
+<button onclick="apply('ಆಧಾರ್ ಸೇವೆಗಳು')">Apply</button>
+</div>
+
+<div class="service">
+<span>PAN Card</span>
+<button onclick="apply('PAN Card')">Apply</button>
+</div>
+
+<div class="service">
+<span>PAN Correction</span>
+<button onclick="apply('PAN Correction')">Apply</button>
+</div>
+
+</div>
+
+
+<div class="category">
+<h2>🎓 ಶಿಕ್ಷಣ ಸೇವೆಗಳು</h2>
+
+<div class="service">
+<span>ವಿದ್ಯಾರ್ಥಿ ಪ್ರಮಾಣ ಪತ್ರ</span>
+<button onclick="apply('ವಿದ್ಯಾರ್ಥಿ ಪ್ರಮಾಣ ಪತ್ರ')">Apply</button>
+</div>
+
+<div class="service">
+<span>ವಿದ್ಯಾರ್ಥಿವೇತನ ಅರ್ಜಿ</span>
+<button onclick="apply('ವಿದ್ಯಾರ್ಥಿವೇತನ ಅರ್ಜಿ')">Apply</button>
+</div>
+
+<div class="service">
+<span>ಶಿಕ್ಷಣ ಸಂಬಂಧಿತ ಸೇವೆಗಳು</span>
+<button onclick="apply('ಶಿಕ್ಷಣ ಸಂಬಂಧಿತ ಸೇವೆಗಳು')">Apply</button>
+</div>
+
+</div>
+
+
+<div class="category">
+<h2>🏦 ಬ್ಯಾಂಕಿಂಗ್ & ಹಣಕಾಸು</h2>
+
+<div class="service">
+<span>ಬ್ಯಾಂಕ್ ಖಾತೆ ಸೇವೆಗಳು</span>
+<button onclick="apply('ಬ್ಯಾಂಕ್ ಖಾತೆ ಸೇವೆಗಳು')">Apply</button>
+</div>
+
+<div class="service">
+<span>ವಿಮೆ ಸೇವೆಗಳು</span>
+<button onclick="apply('ವಿಮೆ ಸೇವೆಗಳು')">Apply</button>
+</div>
+
+<div class="service">
+<span>ಡಿಜಿಟಲ್ ಪೇಮೆಂಟ್ ಸೇವೆಗಳು</span>
+<button onclick="apply('ಡಿಜಿಟಲ್ ಪೇಮೆಂಟ್ ಸೇವೆಗಳು')">Apply</button>
+</div>
+
+</div>
+
+
+<div class="category">
+<h2>🚗 ವಾಹನ ಸೇವೆಗಳು</h2>
+
+<div class="service">
+<span>Driving Licence</span>
+<button onclick="apply('Driving Licence')">Apply</button>
+</div>
+
+<div class="service">
+<span>Vehicle Registration</span>
+<button onclick="apply('Vehicle Registration')">Apply</button>
+</div>
+
+<div class="service">
+<span>RC ಸಂಬಂಧಿತ ಸೇವೆಗಳು</span>
+<button onclick="apply('RC ಸೇವೆಗಳು')">Apply</button>
+</div>
+
+</div>
+
+
+<div class="category">
+<h2>💻 ಡಿಜಿಟಲ್ ಸೇವೆಗಳು</h2>
+
+<div class="service">
+<span>ಆನ್‌ಲೈನ್ ಅರ್ಜಿ ಸಲ್ಲಿಕೆ</span>
+<button onclick="apply('ಆನ್‌ಲೈನ್ ಅರ್ಜಿ ಸಲ್ಲಿಕೆ')">Apply</button>
+</div>
+
+<div class="service">
+<span>ಪ್ರಿಂಟಿಂಗ್ & ಸ್ಕ್ಯಾನಿಂಗ್</span>
+<button onclick="apply('ಪ್ರಿಂಟಿಂಗ್ & ಸ್ಕ್ಯಾನಿಂಗ್')">Apply</button>
+</div>
+
+<div class="service">
+<span>ಆನ್‌ಲೈನ್ ಪಾವತಿ</span>
+<button onclick="apply('ಆನ್‌ಲೈನ್ ಪಾವತಿ')">Apply</button>
+</div>
+
+</div>
+
+
+<div class="back">
+<button onclick="location.href='dashboard.html'">
+⬅ Dashboard
+</button>
+</div>
+
+</div>
+
+
+<script>
+
+function apply(service){
+    localStorage.setItem("selectedService",service);
+    location.href="apply.html";
+}
+
+function searchService(){
+
+    let input=document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let services=document
+        .getElementsByClassName("service");
+
+    for(let i=0;i<services.length;i++){
+
+        let text=services[i]
+            .innerText
+            .toLowerCase();
+
+        services[i].style.display =
+            text.includes(input) ? "flex" : "none";
+    }
+}
+
+</script>
+
+</body>
+</html>
