@@ -287,7 +287,38 @@ function searchService(){
     }
 }
 
-<script src="services.js"></script>
+<script>
+
+function apply(service){
+
+    localStorage.setItem("selectedService", service);
+
+    window.location.href = "./apply.html";
+
+}
+
+function searchService(){
+
+    let input = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let services = document
+        .getElementsByClassName("service");
+
+    for(let i=0;i<services.length;i++){
+
+        let text = services[i]
+            .innerText
+            .toLowerCase();
+
+        services[i].style.display =
+            text.includes(input) ? "flex" : "none";
+    }
+}
+
+</script>
 
 </body>
 </html>
