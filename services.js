@@ -183,21 +183,7 @@ const services = [
 
 ];
 
- {
-        id: 12,
-        name: "ವಾರಸ ಪ್ರಮಾಣ ಪತ್ರ",
-        department: "revenue",
-        departmentName: "ಕಂದಾಯ ಇಲಾಖೆ",
 
-        documents: [
-            "ಆಧಾರ್ ಕಾರ್ಡ್",
-            "ರೇಷನ್ ಕಾರ್ಡ್",
-            "ಎಲ್ಲಾ ಸದಸ್ಯರ ಆಧಾರ ಕಾರ್ಡ್",
-            "ಅರ್ಜಿ ಫಾರ್ಮ",
-            "ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-             "ಬಾಂಡ್",
-        ]
-    },
 // DISPLAY SERVICES
 
 function displayServices(list) {
