@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>VDSKN - Admin Login</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f4f6;
+}
+
+.header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+.header h1{
+    margin:0;
+    color:#ffd000;
+    font-size:32px;
+}
+
+.header p{
+    margin:8px 0 0;
+    font-size:17px;
+}
+
+.login-box{
+    width:90%;
+    max-width:450px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 18px #ccc;
+}
+
+.login-box h2{
+    text-align:center;
+    color:#b8860b;
+    margin-top:0;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-top:8px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    border:0;
+    border-radius:8px;
+    background:#b8860b;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#946f08;
+}
+
+.back{
+    background:#333;
+}
+
+#error{
+    color:red;
+    text-align:center;
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>VDSKN.IN</h1>
+    <p>Village Digital Seva Kendra</p>
+</div>
+
+<div class="login-box">
+
+    <h2>🔐 Admin Login</h2>
+
+    <label>Admin Username</label>
+    <input
+        type="text"
+        id="username"
+        placeholder="Username"
+    >
+
+    <label>Admin Password</label>
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
+
+    <button onclick="login()">
+        🔐 Login
+    </button>
+
+    <p id="error"></p>
+
+    <button class="back" onclick="goBack()">
+        ← Websiteಗೆ ಹಿಂತಿರುಗಿ
+    </button>
+
+</div>
+
+<script>
+
+function login(){
+
+    const username =
+        document.getElementById("username").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    /*
+      ಈಗ temporary login
+      ನಂತರ ಇದನ್ನು secure admin systemಗೆ
+      connect ಮಾಡುತ್ತೇವೆ.
+    */
+
+    if(username === "admin" && password === "1234"){
+
+        localStorage.setItem(
+            "vds_kn_admin",
+            "true"
+        );
+
+        window.location.href =
+            "admin.html";
+
+    }else{
+
+        document.getElementById("error").innerText =
+            "❌ Username ಅಥವಾ Password ತಪ್ಪಾಗಿದೆ";
+
+    }
+}
+
+function goBack(){
+
+    window.location.href =
+        "index.html";
+
+}
+
+</script>
+
+</body>
+</html>
