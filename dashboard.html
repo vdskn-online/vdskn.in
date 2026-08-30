@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>VDSKN Dashboard</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f4f6;
+  color:#222;
+}
+
+.header{
+  background:linear-gradient(135deg,#111,#2b2b2b);
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+  object-fit:contain;
+  border-radius:50%;
+}
+
+.header h1{
+  margin:8px 0;
+  color:#ffd700;
+}
+
+.header p{
+  margin:5px;
+}
+
+.container{
+  max-width:1100px;
+  margin:25px auto;
+  padding:15px;
+}
+
+.welcome{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 3px 12px #ccc;
+  margin-bottom:20px;
+}
+
+.welcome h2{
+  color:#c40000;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 3px 12px #ccc;
+}
+
+.card .icon{
+  font-size:45px;
+}
+
+.card h3{
+  color:#b8860b;
+}
+
+.card button{
+  border:0;
+  padding:12px 20px;
+  border-radius:8px;
+  background:#1677d2;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.logout{
+  background:#d60000 !important;
+}
+
+.footer{
+  text-align:center;
+  padding:25px;
+  margin-top:30px;
+  background:#111;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<img src="logo.png" class="logo" alt="VDSKN Logo">
+
+<h1>VDSKN.IN</h1>
+
+<p>Village Digital Seva Kendra</p>
+
+</header>
+
+
+<div class="container">
+
+<div class="welcome">
+
+<h2>👋 ಸ್ವಾಗತ!</h2>
+
+<p>
+VDSKN Digital Services Dashboardಗೆ ಸ್ವಾಗತ.
+</p>
+
+<p>
+ಇಲ್ಲಿ ನೀವು ವಿವಿಧ ಸರ್ಕಾರಿ ಹಾಗೂ ಡಿಜಿಟಲ್ ಸೇವೆಗಳನ್ನು ಸುಲಭವಾಗಿ ಪಡೆಯಬಹುದು.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">📋</div>
+
+<h3>ಎಲ್ಲಾ ಸೇವೆಗಳು</h3>
+
+<p>700+ ಸೇವೆಗಳ ಪಟ್ಟಿಯನ್ನು ವೀಕ್ಷಿಸಿ.</p>
+
+<button onclick="location.href='services.html'">
+ಸೇವೆಗಳು
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📝</div>
+
+<h3>ಸೇವೆಗಾಗಿ ಅರ್ಜಿ</h3>
+
+<p>ನಿಮಗೆ ಬೇಕಾದ ಸೇವೆಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.</p>
+
+<button onclick="location.href='apply.html'">
+Apply Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔍</div>
+
+<h3>ಅರ್ಜಿ ಸ್ಥಿತಿ</h3>
+
+<p>ನಿಮ್ಮ ಅರ್ಜಿಯ status ಪರಿಶೀಲಿಸಿ.</p>
+
+<button onclick="location.href='status.html'">
+Status Check
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">👤</div>
+
+<h3>Admin</h3>
+
+<p>Admin panelಗೆ ಹೋಗಿ.</p>
+
+<button onclick="location.href='admin-login.html'">
+Admin Login
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏠</div>
+
+<h3>ಮುಖ್ಯ ಪುಟ</h3>
+
+<p>VDSKN ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಮರಳಿ.</p>
+
+<button onclick="location.href='index.html'">
+Home
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🚪</div>
+
+<h3>Logout</h3>
+
+<p>ನಿಮ್ಮ accountನಿಂದ ಹೊರಬನ್ನಿ.</p>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer class="footer">
+
+© 2026 VDSKN.IN — Village Digital Seva Kendra
+
+</footer>
+
+
+<script>
+
+function logout(){
+
+alert("Logout ಯಶಸ್ವಿಯಾಗಿದೆ!");
+
+location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
