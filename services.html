@@ -261,33 +261,27 @@ Apply
 
 <script>
 
-function apply(service){
-    localStorage.setItem("selectedService",service);
-    location.href="apply.html";
+function apply(service) {
+    localStorage.setItem("selectedService", service);
+    window.location.href = "apply.html";
 }
 
-function searchService(){
+function searchService() {
 
-    let input=document
-        .getElementById("search")
-        .value
-        .toLowerCase();
+    let input = document.getElementById("search").value.toLowerCase();
 
-    let services=document
-        .getElementsByClassName("service");
+    let services = document.getElementsByClassName("service");
 
-    for(let i=0;i<services.length;i++){
+    for (let i = 0; i < services.length; i++) {
 
-        let text=services[i]
-            .innerText
-            .toLowerCase();
+        let text = services[i].innerText.toLowerCase();
 
         services[i].style.display =
-            text.includes(input) ? "flex" : "none";
+            text.includes(input) ? "" : "none";
     }
 }
 
-<script>
+</script>
 
 function apply(service){
 
