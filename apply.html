@@ -7,62 +7,80 @@
 <title>VDSKN - ಸೇವೆಗೆ ಅರ್ಜಿ</title>
 
 <style>
+*{box-sizing:border-box}
+
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#f2f3f5;
+    background:#f3f4f6;
 }
 
 .header{
     background:#111;
     color:white;
     text-align:center;
-    padding:25px 10px;
+    padding:25px;
 }
 
 .header h1{
-    color:#ffd000;
-    margin:0;
+    color:#ffd700;
+    margin:5px;
 }
 
 .container{
-    max-width:700px;
-    margin:30px auto;
+    max-width:750px;
+    margin:25px auto;
     background:white;
     padding:25px;
     border-radius:15px;
-    box-shadow:0 4px 15px #bbb;
+    box-shadow:0 4px 15px #ccc;
 }
 
 h2{
-    color:#c58b00;
     text-align:center;
+    color:#b8860b;
 }
 
 label{
     display:block;
-    margin-top:15px;
     font-weight:bold;
+    margin-top:15px;
 }
 
-input,select,textarea{
+input,textarea,select{
     width:100%;
     padding:12px;
     margin-top:6px;
     border:1px solid #ccc;
     border-radius:7px;
-    box-sizing:border-box;
     font-size:16px;
 }
 
 textarea{
-    height:100px;
+    min-height:90px;
+}
+
+.documents{
+    background:#fff8dc;
+    border-left:5px solid #b8860b;
+    padding:15px;
+    margin-top:20px;
+    border-radius:8px;
+}
+
+.documents h3{
+    margin-top:0;
+    color:#8a6500;
+}
+
+.documents li{
+    margin:8px 0;
 }
 
 button{
     width:100%;
-    padding:14px;
     margin-top:25px;
+    padding:14px;
     border:0;
     border-radius:8px;
     background:#128c7e;
@@ -75,11 +93,8 @@ button:hover{
     background:#075e54;
 }
 
-.note{
-    background:#fff3cd;
-    padding:12px;
-    border-radius:8px;
-    margin-top:15px;
+.back{
+    background:#333;
 }
 </style>
 </head>
@@ -95,89 +110,296 @@ button:hover{
 
 <h2>📝 ಸೇವೆಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ</h2>
 
-<div class="note">
-📌 ಕೆಳಗಿನ ಮಾಹಿತಿಯನ್ನು ಸರಿಯಾಗಿ ನಮೂದಿಸಿ.
-</div>
+<label>ಸೇವೆ</label>
 
-<form onsubmit="sendWhatsApp(); return false;">
+<select id="service" onchange="showDocuments()" required>
 
-<label>ಸೇವೆ ಆಯ್ಕೆ ಮಾಡಿ</label>
-
-<select id="service" required>
 <option value="">-- ಸೇವೆ ಆಯ್ಕೆ ಮಾಡಿ --</option>
+
 <option>ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ</option>
 <option>ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</option>
 <option>ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</option>
 <option>ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ</option>
-<option>ಜನನ ಪ್ರಮಾಣ ಪತ್ರ</option>
-<option>ಮರಣ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>ಜಮೀನು ದಾಖಲೆ ಸೇವೆಗಳು</option>
 <option>RTC / ಪಹಣಿ</option>
-<option>ಮ್ಯುಟೇಶನ್</option>
+
 <option>ಆಧಾರ್ ಸೇವೆಗಳು</option>
 <option>PAN Card</option>
-<option>ವಿದ್ಯಾರ್ಥಿ ಸೇವೆಗಳು</option>
-<option>ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು</option>
+<option>PAN Correction</option>
+
+<option>ವಿದ್ಯಾರ್ಥಿ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>ವಿದ್ಯಾರ್ಥಿವೇತನ ಅರ್ಜಿ</option>
+
+<option>ಬ್ಯಾಂಕ್ ಖಾತೆ ಸೇವೆಗಳು</option>
+<option>ವಿಮೆ ಸೇವೆಗಳು</option>
+
+<option>Driving Licence</option>
+<option>Vehicle Registration</option>
+
 <option>ಇತರೆ ಸೇವೆ</option>
+
 </select>
 
+<div id="documents" class="documents" style="display:none;">
+    <h3>📋 ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul id="documentList"></ul>
+</div>
+
 <label>ಅರ್ಜಿದಾರರ ಹೆಸರು</label>
-<input type="text" id="name" placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" required>
+<input type="text" id="name" placeholder="ಪೂರ್ಣ ಹೆಸರು" required>
 
 <label>ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</label>
-<input type="tel" id="mobile" placeholder="10 ಅಂಕೆಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" required>
+<input type="tel" id="mobile"
+       placeholder="10 ಅಂಕೆಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+       maxlength="10"
+       required>
 
 <label>ಆಧಾರ್ ಸಂಖ್ಯೆ</label>
-<input type="text" id="aadhaar" placeholder="ಆಧಾರ್ ಸಂಖ್ಯೆ">
+<input type="text" id="aadhaar"
+       placeholder="ಆಧಾರ್ ಸಂಖ್ಯೆ">
 
 <label>ವಿಳಾಸ</label>
-<textarea id="address" placeholder="ಪೂರ್ಣ ವಿಳಾಸ"></textarea>
+<textarea id="address"
+placeholder="ಪೂರ್ಣ ವಿಳಾಸ"></textarea>
 
 <label>ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ</label>
-<textarea id="message" placeholder="ಅರ್ಜಿಗೆ ಸಂಬಂಧಿಸಿದ ಮಾಹಿತಿ"></textarea>
+<textarea id="message"
+placeholder="ಅಗತ್ಯವಿದ್ದರೆ ಮಾಹಿತಿ ನಮೂದಿಸಿ"></textarea>
 
-<button type="submit">
+<button onclick="sendWhatsApp()">
 📲 WhatsApp ಮೂಲಕ ಅರ್ಜಿ ಕಳುಹಿಸಿ
 </button>
 
-</form>
+<button class="back"
+onclick="location.href='services.html'">
+⬅ ಎಲ್ಲಾ ಸೇವೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ
+</button>
 
 </div>
 
 <script>
 
-function sendWhatsApp(){
+const documents = {
 
-    var service =
+"ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ರೇಷನ್ ಕಾರ್ಡ್",
+"ಶಾಲಾ ದಾಖಲೆ / LC",
+"ಜಾತಿ ದೃಢೀಕರಣಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ದಾಖಲೆ"
+],
+
+"ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ರೇಷನ್ ಕಾರ್ಡ್",
+"ಆದಾಯದ ದಾಖಲೆ",
+"ಬ್ಯಾಂಕ್ ದಾಖಲೆ / ಇತರೆ ಆದಾಯ ದಾಖಲೆ"
+],
+
+"ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ರೇಷನ್ ಕಾರ್ಡ್",
+"ಶಾಲಾ ದಾಖಲೆ / LC",
+"ಆದಾಯದ ದಾಖಲೆ",
+"ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್"
+],
+
+"ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ರೇಷನ್ ಕಾರ್ಡ್",
+"ವಾಸಸ್ಥಳದ ದಾಖಲೆ",
+"ವಿದ್ಯುತ್ ಬಿಲ್ / ವಿಳಾಸದ ದಾಖಲೆ"
+],
+
+"ಜಮೀನು ದಾಖಲೆ ಸೇವೆಗಳು":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"RTC / ಪಹಣಿ",
+"ಜಮೀನಿನ ವಿವರಗಳು"
+],
+
+"RTC / ಪಹಣಿ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಜಿಲ್ಲೆ",
+"ತಾಲೂಕು",
+"ಹೋಬಳಿ",
+"ಗ್ರಾಮ",
+"ಸರ್ವೆ ನಂಬರ್"
+],
+
+"ಆಧಾರ್ ಸೇವೆಗಳು":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",
+"ಅಗತ್ಯವಿರುವ ಸಂಬಂಧಿತ ದಾಖಲೆ"
+],
+
+"PAN Card":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",
+"ಫೋಟೋ",
+"ಅಗತ್ಯವಿರುವ KYC ದಾಖಲೆ"
+],
+
+"PAN Correction":[
+"PAN Card",
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ತಿದ್ದುಪಡಿ ಮಾಡಲು ಬೇಕಾದ ದಾಖಲೆ"
+],
+
+"ವಿದ್ಯಾರ್ಥಿ ಪ್ರಮಾಣ ಪತ್ರ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ಶಾಲಾ ID / Bonafide",
+"ಶಾಲಾ ದಾಖಲೆ"
+],
+
+"ವಿದ್ಯಾರ್ಥಿವೇತನ ಅರ್ಜಿ":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ವಿದ್ಯಾರ್ಥಿ ID",
+"ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್",
+"ಶಾಲೆ / ಕಾಲೇಜು ದಾಖಲೆ"
+],
+
+"ಬ್ಯಾಂಕ್ ಖಾತೆ ಸೇವೆಗಳು":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"PAN Card",
+"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",
+"ಬ್ಯಾಂಕ್ ಸಂಬಂಧಿತ ದಾಖಲೆ"
+],
+
+"ವಿಮೆ ಸೇವೆಗಳು":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"PAN Card",
+"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ",
+"ಅಗತ್ಯವಿರುವ ವಿಮಾ ದಾಖಲೆ"
+],
+
+"Driving Licence":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ವಯಸ್ಸಿನ ದಾಖಲೆ",
+"ವಿಳಾಸದ ದಾಖಲೆ",
+"ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+],
+
+"Vehicle Registration":[
+"ಆಧಾರ್ ಕಾರ್ಡ್",
+"ವಾಹನ ದಾಖಲೆಗಳು",
+"Insurance",
+"ಅಗತ್ಯವಿರುವ RC ದಾಖಲೆ"
+]
+
+};
+
+
+function showDocuments(){
+
+    const service =
     document.getElementById("service").value;
 
-    var name =
+    const box =
+    document.getElementById("documents");
+
+    const list =
+    document.getElementById("documentList");
+
+    list.innerHTML="";
+
+    if(!service || !documents[service]){
+        box.style.display="none";
+        return;
+    }
+
+    documents[service].forEach(function(doc){
+
+        const li=document.createElement("li");
+
+        li.textContent="✅ "+doc;
+
+        list.appendChild(li);
+
+    });
+
+    box.style.display="block";
+}
+
+
+function sendWhatsApp(){
+
+    const service =
+    document.getElementById("service").value;
+
+    const name =
     document.getElementById("name").value;
 
-    var mobile =
+    const mobile =
     document.getElementById("mobile").value;
 
-    var aadhaar =
+    const aadhaar =
     document.getElementById("aadhaar").value;
 
-    var address =
+    const address =
     document.getElementById("address").value;
 
-    var message =
+    const message =
     document.getElementById("message").value;
 
-    var text =
-    "VDSKN.IN ಸೇವೆ ಅರ್ಜಿ%0A%0A" +
-    "ಸೇವೆ: " + service + "%0A" +
-    "ಹೆಸರು: " + name + "%0A" +
-    "ಮೊಬೈಲ್: " + mobile + "%0A" +
-    "ಆಧಾರ್: " + aadhaar + "%0A" +
-    "ವಿಳಾಸ: " + address + "%0A" +
-    "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: " + message;
 
-    var whatsapp =
-    "https://wa.me/918095713511?text=" + text;
+    if(!service){
+        alert("ದಯವಿಟ್ಟು ಸೇವೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.");
+        return;
+    }
 
-    window.open(whatsapp, "_blank");
+    if(!name){
+        alert("ದಯವಿಟ್ಟು ಅರ್ಜಿದಾರರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.");
+        return;
+    }
+
+    if(mobile.length !== 10){
+        alert("ದಯವಿಟ್ಟು ಸರಿಯಾದ 10 ಅಂಕೆಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
+        return;
+    }
+
+
+    let text =
+`VDSKN.IN - ಸೇವೆ ಅರ್ಜಿ
+
+ಸೇವೆ: ${service}
+
+ಅರ್ಜಿದಾರರ ಹೆಸರು: ${name}
+
+ಮೊಬೈಲ್ ಸಂಖ್ಯೆ: ${mobile}
+
+ಆಧಾರ್ ಸಂಖ್ಯೆ: ${aadhaar}
+
+ವಿಳಾಸ:
+${address}
+
+ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ:
+${message}`;
+
+
+    const whatsapp =
+    "https://wa.me/918095713511?text="
+    +encodeURIComponent(text);
+
+
+    window.open(whatsapp,"_blank");
+
+}
+
+
+/* services.html ಇಂದ ಬಂದ service ಅನ್ನು ಪಡೆಯಲು */
+
+const selected =
+localStorage.getItem("selectedService");
+
+if(selected){
+
+    const select =
+    document.getElementById("service");
+
+    select.value=selected;
+
+    showDocuments();
+
+    localStorage.removeItem("selectedService");
 }
 
 </script>
