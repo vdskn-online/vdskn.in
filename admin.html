@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VDSKN - Admin Service Management</title>
+<title>VDSKN - Admin Panel</title>
 
 <style>
 *{
@@ -29,17 +29,21 @@ body{
     color:#ffd000;
 }
 
+.header p{
+    margin:7px 0;
+}
+
 .container{
-    width:95%;
+    width:94%;
     max-width:900px;
     margin:25px auto;
 }
 
 .card{
     background:white;
-    padding:20px;
-    border-radius:12px;
+    padding:25px;
     margin-bottom:20px;
+    border-radius:14px;
     box-shadow:0 3px 12px #ccc;
 }
 
@@ -53,224 +57,263 @@ label{
     display:block;
     font-weight:bold;
     margin-top:15px;
-    margin-bottom:6px;
 }
 
 input,
-textarea{
+textarea,
+select{
     width:100%;
     padding:13px;
+    margin-top:7px;
     border:1px solid #ccc;
-    border-radius:7px;
+    border-radius:8px;
     font-size:16px;
 }
 
 textarea{
     min-height:100px;
+    resize:vertical;
 }
 
 button{
-    width:100%;
-    padding:14px;
     border:0;
-    border-radius:7px;
-    margin-top:15px;
-    font-size:17px;
+    border-radius:8px;
+    padding:13px 18px;
+    font-size:16px;
     font-weight:bold;
     cursor:pointer;
 }
 
 .add{
-    background:#129b87;
+    width:100%;
+    margin-top:20px;
+    background:#15957f;
     color:white;
 }
 
-.clear{
-    background:#777;
+.logout{
+    background:#d32f2f;
     color:white;
-}
-
-.delete{
-    background:#d9534f;
-    color:white;
-}
-
-.edit{
-    background:#b8860b;
-    color:white;
+    float:right;
 }
 
 .service{
-    background:#fff8dc;
-    padding:15px;
-    border-left:5px solid #b8860b;
+    border:1px solid #ddd;
+    padding:18px;
     margin-top:15px;
-    border-radius:7px;
+    border-radius:10px;
+    background:#fafafa;
 }
 
 .service h3{
     margin-top:0;
-    color:#8a6500;
+    color:#333;
 }
 
-.service p{
-    line-height:1.6;
+.edit{
+    background:#1976d2;
+    color:white;
+    margin-right:8px;
 }
 
-.small-btn{
-    width:48%;
-    display:inline-block;
+.delete{
+    background:#d32f2f;
+    color:white;
 }
 
+#message{
+    text-align:center;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.empty{
+    text-align:center;
+    color:#777;
+    padding:20px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="header">
+
+    <button class="logout" onclick="logout()">
+        Logout
+    </button>
+
     <h1>VDSKN.IN</h1>
-    <p>Admin Service Management</p>
+    <p>Admin Panel</p>
+
 </div>
 
 <div class="container">
 
-<!-- ADD / EDIT SERVICE -->
+    <!-- ADD SERVICE -->
 
-<div class="card">
+    <div class="card">
 
-<h2>➕ ಸೇವೆ ಸೇರಿಸಿ / ✏️ ಬದಲಾಯಿಸಿ</h2>
+        <h2>➕ ಹೊಸ ಸೇವೆ ಸೇರಿಸಿ</h2>
 
-<label>Serial Number</label>
-<input
-    type="number"
-    id="serial"
-    placeholder="ಉದಾ: 1"
->
+        <label>ಸೇವೆಯ ಹೆಸರು</label>
 
-<label>ಸೇವೆಯ ಹೆಸರು *</label>
-<input
-    type="text"
-    id="serviceName"
-    placeholder="ಉದಾ: ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ"
->
+        <input
+            type="text"
+            id="serviceName"
+            placeholder="ಉದಾ: ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ"
+        >
 
-<label>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು *</label>
-<textarea
-    id="documents"
-    placeholder="ಪ್ರತಿ ದಾಖಲೆಯನ್ನು ಹೊಸ ಸಾಲಿನಲ್ಲಿ ಬರೆಯಿರಿ&#10;ಆಧಾರ್ ಕಾರ್ಡ್&#10;ರೇಷನ್ ಕಾರ್ಡ್&#10;ಶಾಲಾ LC"
-></textarea>
+        <label>ವಿಭಾಗ</label>
 
-<label>ಅರ್ಜಿ ಶುಲ್ಕ</label>
-<input
-    type="text"
-    id="fee"
-    placeholder="ಉದಾ: ₹50"
->
+        <select id="category">
 
-<label>ಸೇವೆಯ ಸಮಯ</label>
-<input
-    type="text"
-    id="time"
-    placeholder="ಉದಾ: 7 ದಿನಗಳು"
->
+            <option value="">
+                ವಿಭಾಗ ಆಯ್ಕೆ ಮಾಡಿ
+            </option>
 
-<label>ಸೇವೆಯ ವಿವರಣೆ</label>
-<textarea
-    id="description"
-    placeholder="ಸೇವೆಯ ಬಗ್ಗೆ ಮಾಹಿತಿ"
-></textarea>
+            <option value="ಕಂದಾಯ ಇಲಾಖೆ">
+                ಕಂದಾಯ ಇಲಾಖೆ
+            </option>
 
-<button
-    class="add"
-    onclick="saveService()"
->
-    💾 Save Service
-</button>
+            <option value="ಶಿಕ್ಷಣ ಇಲಾಖೆ">
+                ಶಿಕ್ಷಣ ಇಲಾಖೆ
+            </option>
 
-<button
-    class="clear"
-    onclick="clearForm()"
->
-    🔄 Clear
-</button>
+            <option value="ಆರೋಗ್ಯ ಇಲಾಖೆ">
+                ಆರೋಗ್ಯ ಇಲಾಖೆ
+            </option>
 
-</div>
+            <option value="ಕಾರ್ಮಿಕ ಇಲಾಖೆ">
+                ಕಾರ್ಮಿಕ ಇಲಾಖೆ
+            </option>
+
+            <option value="ಸರ್ಕಾರಿ ಸೇವೆಗಳು">
+                ಸರ್ಕಾರಿ ಸೇವೆಗಳು
+            </option>
+
+            <option value="ಇತರೆ">
+                ಇತರೆ
+            </option>
+
+        </select>
+
+        <label>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</label>
+
+        <textarea
+            id="documents"
+            placeholder="1. ಆಧಾರ್ ಕಾರ್ಡ್
+2. ರೇಷನ್ ಕಾರ್ಡ್
+3. ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+        ></textarea>
+
+        <label>ಸೇವೆಯ ಮಾಹಿತಿ</label>
+
+        <textarea
+            id="information"
+            placeholder="ಈ ಸೇವೆಗೆ ಸಂಬಂಧಿಸಿದ ಹೆಚ್ಚಿನ ಮಾಹಿತಿ..."
+        ></textarea>
+
+        <button
+            class="add"
+            onclick="saveService()"
+        >
+            💾 ಸೇವೆ ಉಳಿಸಿ
+        </button>
+
+        <p id="message"></p>
+
+    </div>
 
 
-<!-- SERVICE LIST -->
+    <!-- SERVICE LIST -->
 
-<div class="card">
+    <div class="card">
 
-<h2>📋 ಎಲ್ಲಾ ಸೇವೆಗಳು</h2>
+        <h2>📋 ಎಲ್ಲಾ ಸೇವೆಗಳು</h2>
 
-<div id="serviceList"></div>
+        <div id="serviceList"></div>
 
-</div>
+    </div>
 
 </div>
 
 
 <script>
 
+/* ADMIN CHECK */
+
+if(localStorage.getItem("vds_kn_admin") !== "true"){
+
+    window.location.href =
+        "admin-login.html";
+
+}
+
+
+/* DEFAULT SERVICES */
+
 let services =
-JSON.parse(localStorage.getItem("vdsServices")) || [];
+    JSON.parse(
+        localStorage.getItem("vds_kn_services")
+    ) || [];
+
+
+/* EDIT ID */
 
 let editIndex = -1;
 
 
-/* =========================
-   SAVE SERVICE
-========================= */
+/* SAVE SERVICE */
 
 function saveService(){
 
-    let serial =
-        document.getElementById("serial").value.trim();
+    const name =
+        document.getElementById("serviceName")
+        .value.trim();
 
-    let name =
-        document.getElementById("serviceName").value.trim();
+    const category =
+        document.getElementById("category")
+        .value;
 
-    let documents =
-        document.getElementById("documents").value.trim();
+    const documents =
+        document.getElementById("documents")
+        .value.trim();
 
-    let fee =
-        document.getElementById("fee").value.trim();
-
-    let time =
-        document.getElementById("time").value.trim();
-
-    let description =
-        document.getElementById("description").value.trim();
+    const information =
+        document.getElementById("information")
+        .value.trim();
 
 
-    if(name === ""){
+    if(!name){
 
-        alert("ಸೇವೆಯ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.");
+        showMessage(
+            "❌ ಸೇವೆಯ ಹೆಸರು ನಮೂದಿಸಿ"
+        );
+
         return;
-
-    }
-
-    if(documents === ""){
-
-        alert("ಬೇಕಾಗುವ ದಾಖಲೆಗಳನ್ನು ನಮೂದಿಸಿ.");
-        return;
-
     }
 
 
-    let service = {
+    if(!category){
 
-        serial: serial || services.length + 1,
+        showMessage(
+            "❌ ವಿಭಾಗ ಆಯ್ಕೆ ಮಾಡಿ"
+        );
 
-        name: name,
+        return;
+    }
 
-        documents: documents,
 
-        fee: fee,
+    const service = {
 
-        time: time,
+        name:name,
 
-        description: description
+        category:category,
+
+        documents:documents,
+
+        information:information
 
     };
 
@@ -279,21 +322,25 @@ function saveService(){
 
         services.push(service);
 
-        alert("✅ ಹೊಸ Service ಸೇರಿಸಲಾಗಿದೆ.");
+        showMessage(
+            "✅ ಹೊಸ ಸೇವೆ ಸೇರಿಸಲಾಗಿದೆ"
+        );
 
     }else{
 
         services[editIndex] = service;
 
-        alert("✅ Service Update ಮಾಡಲಾಗಿದೆ.");
-
         editIndex = -1;
+
+        showMessage(
+            "✅ ಸೇವೆ Update ಮಾಡಲಾಗಿದೆ"
+        );
 
     }
 
 
     localStorage.setItem(
-        "vdsServices",
+        "vds_kn_services",
         JSON.stringify(services)
     );
 
@@ -305,14 +352,14 @@ function saveService(){
 }
 
 
-/* =========================
-   DISPLAY SERVICES
-========================= */
+/* DISPLAY SERVICES */
 
 function displayServices(){
 
-    let list =
-        document.getElementById("serviceList");
+    const list =
+        document.getElementById(
+            "serviceList"
+        );
 
     list.innerHTML = "";
 
@@ -320,102 +367,93 @@ function displayServices(){
     if(services.length === 0){
 
         list.innerHTML =
-            "<p>ಯಾವುದೇ Service ಇಲ್ಲ.</p>";
+            '<div class="empty">ಯಾವುದೇ ಸೇವೆ ಇಲ್ಲ</div>';
 
         return;
-
     }
 
 
-    services.forEach(function(service,index){
+    services.forEach(
+        function(service,index){
 
-        let docs =
-            service.documents
-            .split("\n")
-            .filter(x => x.trim() !== "")
-            .map(x => "• " + x)
-            .join("<br>");
+            const div =
+                document.createElement("div");
+
+            div.className = "service";
 
 
-        list.innerHTML += `
+            div.innerHTML = `
 
-        <div class="service">
+                <h3>
+                    ${index + 1}. ${escapeHTML(service.name)}
+                </h3>
 
-            <h3>
-                ${service.serial}. ${service.name}
-            </h3>
+                <p>
+                    <b>ವಿಭಾಗ:</b>
+                    ${escapeHTML(service.category)}
+                </p>
 
-            <p>
-                <b>📄 ಬೇಕಾಗುವ ದಾಖಲೆಗಳು:</b><br>
-                ${docs}
-            </p>
+                <p>
+                    <b>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು:</b><br>
+                    ${formatText(service.documents)}
+                </p>
 
-            <p>
-                <b>💰 ಶುಲ್ಕ:</b>
-                ${service.fee || "ಮಾಹಿತಿ ಇಲ್ಲ"}
-            </p>
+                <p>
+                    <b>ಸೇವೆಯ ಮಾಹಿತಿ:</b><br>
+                    ${formatText(service.information)}
+                </p>
 
-            <p>
-                <b>⏱️ ಸಮಯ:</b>
-                ${service.time || "ಮಾಹಿತಿ ಇಲ್ಲ"}
-            </p>
+                <button
+                    class="edit"
+                    onclick="editService(${index})"
+                >
+                    ✏️ Edit
+                </button>
 
-            <p>
-                <b>📝 ವಿವರಣೆ:</b><br>
-                ${service.description || "ಮಾಹಿತಿ ಇಲ್ಲ"}
-            </p>
+                <button
+                    class="delete"
+                    onclick="deleteService(${index})"
+                >
+                    🗑️ Delete
+                </button>
 
-            <button
-                class="edit small-btn"
-                onclick="editService(${index})"
-            >
-                ✏️ Edit
-            </button>
+            `;
 
-            <button
-                class="delete small-btn"
-                onclick="deleteService(${index})"
-            >
-                🗑️ Delete
-            </button>
 
-        </div>
+            list.appendChild(div);
 
-        `;
-
-    });
+        }
+    );
 
 }
 
 
-/* =========================
-   EDIT
-========================= */
+/* EDIT */
 
 function editService(index){
 
-    let service =
+    const service =
         services[index];
 
-    document.getElementById("serial").value =
-        service.serial;
+    document.getElementById(
+        "serviceName"
+    ).value = service.name;
 
-    document.getElementById("serviceName").value =
-        service.name;
+    document.getElementById(
+        "category"
+    ).value = service.category;
 
-    document.getElementById("documents").value =
-        service.documents;
+    document.getElementById(
+        "documents"
+    ).value = service.documents;
 
-    document.getElementById("fee").value =
-        service.fee;
+    document.getElementById(
+        "information"
+    ).value = service.information;
 
-    document.getElementById("time").value =
-        service.time;
-
-    document.getElementById("description").value =
-        service.description;
 
     editIndex = index;
+
 
     window.scrollTo({
         top:0,
@@ -425,58 +463,130 @@ function editService(index){
 }
 
 
-/* =========================
-   DELETE
-========================= */
+/* DELETE */
 
 function deleteService(index){
 
     if(
-        confirm(
-            "ಈ Service ಅನ್ನು Delete ಮಾಡಬೇಕೇ?"
+        !confirm(
+            "ಈ ಸೇವೆಯನ್ನು Delete ಮಾಡಬೇಕೇ?"
         )
     ){
 
-        services.splice(index,1);
-
-        localStorage.setItem(
-            "vdsServices",
-            JSON.stringify(services)
-        );
-
-        displayServices();
-
+        return;
     }
+
+
+    services.splice(index,1);
+
+
+    localStorage.setItem(
+        "vds_kn_services",
+        JSON.stringify(services)
+    );
+
+
+    displayServices();
+
+
+    showMessage(
+        "🗑️ ಸೇವೆ Delete ಮಾಡಲಾಗಿದೆ"
+    );
 
 }
 
 
-/* =========================
-   CLEAR
-========================= */
+/* CLEAR FORM */
 
 function clearForm(){
 
-    document.getElementById("serial").value = "";
+    document.getElementById(
+        "serviceName"
+    ).value = "";
 
-    document.getElementById("serviceName").value = "";
+    document.getElementById(
+        "category"
+    ).value = "";
 
-    document.getElementById("documents").value = "";
+    document.getElementById(
+        "documents"
+    ).value = "";
 
-    document.getElementById("fee").value = "";
-
-    document.getElementById("time").value = "";
-
-    document.getElementById("description").value = "";
+    document.getElementById(
+        "information"
+    ).value = "";
 
     editIndex = -1;
 
 }
 
 
-/* =========================
-   START
-========================= */
+/* MESSAGE */
+
+function showMessage(text){
+
+    const msg =
+        document.getElementById("message");
+
+    msg.innerText = text;
+
+    setTimeout(
+        function(){
+
+            msg.innerText = "";
+
+        },
+        2500
+    );
+
+}
+
+
+/* TEXT FORMAT */
+
+function formatText(text){
+
+    if(!text){
+
+        return "ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ";
+
+    }
+
+    return escapeHTML(text)
+        .replace(/\n/g,"<br>");
+
+}
+
+
+/* SECURITY */
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* LOGOUT */
+
+function logout(){
+
+    localStorage.removeItem(
+        "vds_kn_admin"
+    );
+
+    window.location.href =
+        "admin-login.html";
+
+}
+
+
+/* START */
 
 displayServices();
 
