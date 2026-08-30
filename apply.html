@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>VDSKN - ಸೇವೆಗೆ ಅರ್ಜಿ</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f2f3f5;
+}
+
+.header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px 10px;
+}
+
+.header h1{
+    color:#ffd000;
+    margin:0;
+}
+
+.container{
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #bbb;
+}
+
+h2{
+    color:#c58b00;
+    text-align:center;
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border:1px solid #ccc;
+    border-radius:7px;
+    box-sizing:border-box;
+    font-size:16px;
+}
+
+textarea{
+    height:100px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:25px;
+    border:0;
+    border-radius:8px;
+    background:#128c7e;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#075e54;
+}
+
+.note{
+    background:#fff3cd;
+    padding:12px;
+    border-radius:8px;
+    margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>VDSKN.IN</h1>
+    <p>Village Digital Seva Kendra</p>
+</div>
+
+<div class="container">
+
+<h2>📝 ಸೇವೆಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ</h2>
+
+<div class="note">
+📌 ಕೆಳಗಿನ ಮಾಹಿತಿಯನ್ನು ಸರಿಯಾಗಿ ನಮೂದಿಸಿ.
+</div>
+
+<form onsubmit="sendWhatsApp(); return false;">
+
+<label>ಸೇವೆ ಆಯ್ಕೆ ಮಾಡಿ</label>
+
+<select id="service" required>
+<option value="">-- ಸೇವೆ ಆಯ್ಕೆ ಮಾಡಿ --</option>
+<option>ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>ಜನನ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>ಮರಣ ಪ್ರಮಾಣ ಪತ್ರ</option>
+<option>RTC / ಪಹಣಿ</option>
+<option>ಮ್ಯುಟೇಶನ್</option>
+<option>ಆಧಾರ್ ಸೇವೆಗಳು</option>
+<option>PAN Card</option>
+<option>ವಿದ್ಯಾರ್ಥಿ ಸೇವೆಗಳು</option>
+<option>ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು</option>
+<option>ಇತರೆ ಸೇವೆ</option>
+</select>
+
+<label>ಅರ್ಜಿದಾರರ ಹೆಸರು</label>
+<input type="text" id="name" placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು" required>
+
+<label>ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</label>
+<input type="tel" id="mobile" placeholder="10 ಅಂಕೆಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" required>
+
+<label>ಆಧಾರ್ ಸಂಖ್ಯೆ</label>
+<input type="text" id="aadhaar" placeholder="ಆಧಾರ್ ಸಂಖ್ಯೆ">
+
+<label>ವಿಳಾಸ</label>
+<textarea id="address" placeholder="ಪೂರ್ಣ ವಿಳಾಸ"></textarea>
+
+<label>ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ</label>
+<textarea id="message" placeholder="ಅರ್ಜಿಗೆ ಸಂಬಂಧಿಸಿದ ಮಾಹಿತಿ"></textarea>
+
+<button type="submit">
+📲 WhatsApp ಮೂಲಕ ಅರ್ಜಿ ಕಳುಹಿಸಿ
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+function sendWhatsApp(){
+
+    var service =
+    document.getElementById("service").value;
+
+    var name =
+    document.getElementById("name").value;
+
+    var mobile =
+    document.getElementById("mobile").value;
+
+    var aadhaar =
+    document.getElementById("aadhaar").value;
+
+    var address =
+    document.getElementById("address").value;
+
+    var message =
+    document.getElementById("message").value;
+
+    var text =
+    "VDSKN.IN ಸೇವೆ ಅರ್ಜಿ%0A%0A" +
+    "ಸೇವೆ: " + service + "%0A" +
+    "ಹೆಸರು: " + name + "%0A" +
+    "ಮೊಬೈಲ್: " + mobile + "%0A" +
+    "ಆಧಾರ್: " + aadhaar + "%0A" +
+    "ವಿಳಾಸ: " + address + "%0A" +
+    "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: " + message;
+
+    var whatsapp =
+    "https://wa.me/918095713511?text=" + text;
+
+    window.open(whatsapp, "_blank");
+}
+
+</script>
+
+</body>
+</html>
