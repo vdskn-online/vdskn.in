@@ -181,16 +181,12 @@ textarea{
 
 <h3>📄 ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
 
-<ul>
-<li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
-<li>ರೇಷನ್ ಕಾರ್ಡ್</li>
-<li>ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</li>
-<li>ಅಗತ್ಯವಿರುವ ಸಂಬಂಧಿತ ದಾಖಲೆಗಳು</li>
+<ul id="documentList">
+<li>ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...</li>
 </ul>
 
 </div>
 
-</div>
 
 
 <div class="card">
@@ -285,6 +281,87 @@ VDSKN ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ.
 <script>
 
 let selectedService =
+    const serviceDocuments = {
+
+    "ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ": [
+        "ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ರೇಷನ್ ಕಾರ್ಡ್",
+        "ಶಾಲಾ ದೃಢೀಕರಣ / LC",
+        "ಆದಾಯದ ದಾಖಲೆ",
+        "ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+    ],
+
+    "ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ": [
+        "ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ರೇಷನ್ ಕಾರ್ಡ್",
+        "ಆದಾಯದ ದಾಖಲೆ",
+        "ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+    ],
+
+    "ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ": [
+        "ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ರೇಷನ್ ಕಾರ್ಡ್",
+        "ವಾಸಸ್ಥಳದ ದಾಖಲೆ",
+        "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+    ],
+
+    "RTC / ಪಹಣಿ": [
+        "ಆಧಾರ್ ಕಾರ್ಡ್",
+        "RTC / ಪಹಣಿ ವಿವರ",
+        "ಜಮೀನಿನ ದಾಖಲೆ",
+        "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+    ],
+
+    "ಅಫಿಡವಿಟ್ ಸೇವೆಗಳು": [
+        "ಆಧಾರ್ ಕಾರ್ಡ್",
+        "ಅಗತ್ಯವಿರುವ ದಾಖಲೆಗಳು",
+        "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+    ]
+
+};
+
+
+function loadDocuments(){
+
+    const list =
+    document.getElementById("documentList");
+
+    if(!list) return;
+
+    const documents =
+    serviceDocuments[selectedService];
+
+    list.innerHTML = "";
+
+    if(documents){
+
+        documents.forEach(function(doc){
+
+            const li =
+            document.createElement("li");
+
+            li.textContent = doc;
+
+            list.appendChild(li);
+
+        });
+
+    }else{
+
+        const li =
+        document.createElement("li");
+
+        li.textContent =
+        "ಸಂಬಂಧಿಸಿದ ದಾಖಲೆಗಳಿಗಾಗಿ VDSKN ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ.";
+
+        list.appendChild(li);
+
+    }
+
+}
+
+
+loadDocuments();
 localStorage.getItem("selectedService");
 
 
@@ -419,7 +496,7 @@ function sendWhatsApp(){
 ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: ${data.message}`;
 
 
-    let phone="918095713511";
+    let phone="919740221511";
 
 
     let url =
