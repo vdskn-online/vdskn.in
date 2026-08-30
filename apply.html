@@ -7,6 +7,7 @@
 <title>VDSKN - ಸೇವೆಗೆ ಅರ್ಜಿ</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -27,99 +28,120 @@ body{
 
 .header h1{
     margin:0;
-    color:#ffd400;
+    color:#ffd000;
     font-size:32px;
 }
 
 .header p{
-    margin:8px 0 0;
+    margin:8px 0;
     font-size:16px;
 }
 
 .header h2{
-    margin:18px 0 0;
+    margin:10px 0 0;
     font-size:25px;
 }
 
 .container{
+    width:95%;
     max-width:750px;
     margin:25px auto;
-    padding:0 15px;
 }
 
 .card{
     background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 3px 15px #ccc;
+    padding:22px;
+    border-radius:15px;
+    box-shadow:0 4px 15px #ccc;
     margin-bottom:20px;
 }
 
-.service-title{
-    background:#c28b00;
-    color:white;
-    padding:15px;
-    border-radius:8px;
-    font-size:22px;
+.title{
+    color:#b8860b;
+    font-size:25px;
     font-weight:bold;
+    border-bottom:2px solid #b8860b;
+    padding-bottom:10px;
     margin-bottom:20px;
 }
 
 label{
     display:block;
+    font-size:18px;
     font-weight:bold;
-    margin-top:15px;
-    margin-bottom:6px;
+    margin-top:16px;
+    margin-bottom:7px;
 }
 
-input,select,textarea{
+input,
+textarea,
+select{
     width:100%;
-    padding:13px;
+    padding:14px;
     border:1px solid #ccc;
-    border-radius:7px;
-    font-size:16px;
+    border-radius:8px;
+    font-size:17px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border:2px solid #b8860b;
 }
 
 textarea{
-    min-height:100px;
+    min-height:110px;
     resize:vertical;
 }
 
+.service-box{
+    background:#fff7d6;
+    border-left:6px solid #b8860b;
+    padding:15px;
+    border-radius:8px;
+    font-size:20px;
+    font-weight:bold;
+    color:#8a6500;
+}
+
 .documents{
-    background:#fff8dc;
-    border-left:5px solid #c28b00;
+    background:#fff7d6;
+    border-left:6px solid #b8860b;
     padding:15px;
-    border-radius:6px;
-    margin-top:15px;
+    border-radius:8px;
+    line-height:1.8;
 }
 
-.documents h3{
-    margin-top:0;
-    color:#a87500;
+.documents ul{
+    margin:5px 0;
+    padding-left:25px;
 }
 
-.documents li{
-    margin:8px 0;
+.upload-note{
+    font-size:14px;
+    color:#777;
+    margin-top:5px;
 }
 
-.btn{
+button{
     width:100%;
-    padding:15px;
+    padding:16px;
     border:0;
     border-radius:8px;
-    font-size:18px;
+    font-size:19px;
     font-weight:bold;
     cursor:pointer;
     margin-top:20px;
 }
 
 .submit{
-    background:#198754;
+    background:#129b87;
     color:white;
 }
 
 .whatsapp{
-    background:#25d366;
+    background:#25D366;
     color:white;
 }
 
@@ -130,336 +152,363 @@ textarea{
 
 .success{
     display:none;
-    background:#d1e7dd;
-    color:#0f5132;
+    background:#e8fff1;
+    border:2px solid #25a55b;
+    color:#146c38;
     padding:15px;
-    border-radius:8px;
+    border-radius:10px;
     margin-top:20px;
+    font-size:17px;
+}
+
+.footer{
     text-align:center;
-    font-weight:bold;
+    padding:20px;
+    color:#777;
+    font-size:14px;
 }
 
 @media(max-width:600px){
+
     .header h1{
-        font-size:26px;
+        font-size:27px;
+    }
+
+    .header h2{
+        font-size:22px;
     }
 
     .card{
-        padding:18px;
+        padding:16px;
     }
 
-    .service-title{
-        font-size:19px;
+    .title{
+        font-size:21px;
     }
+
+    label{
+        font-size:16px;
+    }
+
+    input,
+    textarea,
+    select{
+        font-size:16px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <div class="header">
 
-<h1>VDSKN.IN</h1>
+    <h1>VDSKN.IN</h1>
 
-<p>Village Digital Seva Kendra</p>
+    <p>Village Digital Seva Kendra</p>
 
-<h2>📝 ಸೇವೆಗೆ ಅರ್ಜಿ</h2>
+    <h2>📝 ಸೇವೆಗೆ ಅರ್ಜಿ</h2>
 
 </div>
 
 
 <div class="container">
 
-<div class="card">
 
-<div class="service-title">
-📌 <span id="serviceName">ಸೇವೆ</span>
-</div>
-
-
-<div class="documents">
-
-<h3>📄 ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
-
-<ul id="documentList">
-<li>ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...</li>
-</ul>
-
-</div>
-
-
+<!-- SELECTED SERVICE -->
 
 <div class="card">
 
-<h2>👤 ಅರ್ಜಿದಾರರ ವಿವರ</h2>
+    <div class="title">
+        📌 ಆಯ್ಕೆ ಮಾಡಿದ ಸೇವೆ
+    </div>
 
-<label>ಅರ್ಜಿದಾರರ ಹೆಸರು *</label>
-
-<input
-type="text"
-id="name"
-placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು"
-required
->
-
-
-<label>ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *</label>
-
-<input
-type="tel"
-id="mobile"
-placeholder="10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-maxlength="10"
-required
->
-
-
-<label>ಆಧಾರ್ ಸಂಖ್ಯೆ</label>
-
-<input
-type="text"
-id="aadhaar"
-placeholder="ಆಧಾರ್ ಸಂಖ್ಯೆ"
-maxlength="12"
->
-
-
-<label>ವಿಳಾಸ *</label>
-
-<textarea
-id="address"
-placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ವಿಳಾಸ"
-></textarea>
-
-
-<label>ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ</label>
-    
-<label>2. 📎 Aadhaar Card</label>
-<input type="file">
-
-<label>3. 📎 Ration Card</label>
-<input type="file">
-
-<label>4. 📎 School LC</label>
-<input type="file">
-
-<label>5. 📎 Income Certificate</label>
-<input type="file">
-
-<div id="fileList"></div>
-
-<textarea
-id="message"
-placeholder="ಅಗತ್ಯವಿದ್ದರೆ ಮಾಹಿತಿ ನಮೂದಿಸಿ"
-></textarea>
-
-
-<button
-class="btn submit"
-onclick="submitApplication()"
->
-✅ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ
-</button>
-
-
-<button
-class="btn whatsapp"
-onclick="sendWhatsApp()"
->
-💬 WhatsApp ಮೂಲಕ ಕಳುಹಿಸಿ
-</button>
-
-
-<button
-class="btn back"
-onclick="goBack()"
->
-⬅️ ಸೇವೆಗಳ ಪಟ್ಟಿಗೆ ಹಿಂತಿರುಗಿ
-</button>
-
-
-<div
-id="success"
-class="success"
->
-✅ ನಿಮ್ಮ ಅರ್ಜಿ ವಿವರಗಳು ಸಿದ್ಧವಾಗಿದೆ.
-<br>
-VDSKN ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ.
-</div>
+    <div class="service-box" id="serviceName">
+        ಸೇವೆ ಲೋಡ್ ಆಗುತ್ತಿದೆ...
+    </div>
 
 </div>
+
+
+<!-- REQUIRED DOCUMENTS -->
+
+<div class="card">
+
+    <div class="title">
+        📄 ಬೇಕಾಗುವ ದಾಖಲೆಗಳು
+    </div>
+
+    <div class="documents">
+
+        <ul>
+
+            <li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+
+            <li>ರೇಷನ್ ಕಾರ್ಡ್</li>
+
+            <li>ಅಗತ್ಯವಿದ್ದಲ್ಲಿ ಸಂಬಂಧಿಸಿದ ದಾಖಲೆಗಳು</li>
+
+            <li>ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+<!-- APPLICATION FORM -->
+
+<div class="card">
+
+    <div class="title">
+        👤 ಅರ್ಜಿದಾರರ ವಿವರ
+    </div>
+
+
+    <label>
+        ಅರ್ಜಿದಾರರ ಹೆಸರು *
+    </label>
+
+    <input
+        type="text"
+        id="name"
+        placeholder="ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು"
+        required
+    >
+
+
+    <label>
+        ಮೊಬೈಲ್ ಸಂಖ್ಯೆ *
+    </label>
+
+    <input
+        type="tel"
+        id="mobile"
+        maxlength="10"
+        placeholder="10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
+        required
+    >
+
+
+    <label>
+        ಆಧಾರ್ ಸಂಖ್ಯೆ
+    </label>
+
+    <input
+        type="text"
+        id="aadhaar"
+        maxlength="12"
+        placeholder="12 ಅಂಕಿಯ ಆಧಾರ್ ಸಂಖ್ಯೆ"
+    >
+
+
+    <label>
+        ಜಿಲ್ಲೆ *
+    </label>
+
+    <input
+        type="text"
+        id="district"
+        placeholder="ಜಿಲ್ಲೆ"
+        required
+    >
+
+
+    <label>
+        ತಾಲ್ಲೂಕು *
+    </label>
+
+    <input
+        type="text"
+        id="taluk"
+        placeholder="ತಾಲ್ಲೂಕು"
+        required
+    >
+
+
+    <label>
+        ಗ್ರಾಮ *
+    </label>
+
+    <input
+        type="text"
+        id="village"
+        placeholder="ಗ್ರಾಮ"
+        required
+    >
+
+
+    <label>
+        ದಾಖಲೆ ಆಯ್ಕೆ
+    </label>
+
+    <input
+        type="file"
+        id="documents"
+        multiple
+    >
+
+    <div class="upload-note">
+        ಅಗತ್ಯವಿರುವ ದಾಖಲೆಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.
+    </div>
+
+
+    <label>
+        ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ
+    </label>
+
+    <textarea
+        id="message"
+        placeholder="ಇನ್ನೇನಾದರೂ ಮಾಹಿತಿ ಇದ್ದರೆ ಇಲ್ಲಿ ಬರೆಯಿರಿ"
+    ></textarea>
+
+
+    <!-- SUBMIT -->
+
+    <button
+        class="submit"
+        onclick="submitApplication()"
+    >
+        📲 ಅರ್ಜಿ Submit ಮಾಡಿ
+    </button>
+
+
+    <!-- WHATSAPP -->
+
+    <button
+        class="whatsapp"
+        onclick="sendWhatsApp()"
+    >
+        💬 WhatsApp ಮೂಲಕ ಕಳುಹಿಸಿ
+    </button>
+
+
+    <div
+        class="success"
+        id="successMessage"
+    >
+        ✅ ನಿಮ್ಮ ಅರ್ಜಿ ವಿವರಗಳು ಸಿದ್ಧವಾಗಿದೆ.
+    </div>
+
+</div>
+
+
+<!-- BACK -->
+
+<div class="card">
+
+    <button
+        class="back"
+        onclick="goBack()"
+    >
+        ← ಎಲ್ಲಾ ಸೇವೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ
+    </button>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+    VDSKN.IN © 2026<br>
+    Village Digital Seva Kendra
 
 </div>
 
 
 <script>
 
-let selectedService =
-    const serviceDocuments = {
+/* =========================
+   SERVICE NAME
+========================= */
 
-    "ಜಾತಿ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ": [
-        "ಆಧಾರ್ ಕಾರ್ಡ್",
-        "ರೇಷನ್ ಕಾರ್ಡ್",
-        "ಶಾಲಾ ದೃಢೀಕರಣ / LC",
-        "ಆದಾಯದ ದಾಖಲೆ",
-        "ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-    ],
+let service =
+    localStorage.getItem("selectedService");
 
-    "ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ": [
-        "ಆಧಾರ್ ಕಾರ್ಡ್",
-        "ರೇಷನ್ ಕಾರ್ಡ್",
-        "ಆದಾಯದ ದಾಖಲೆ",
-        "ಆಧಾರ್‌ಗೆ ಲಿಂಕ್ ಇರುವ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-    ],
+if(service){
 
-    "ವಾಸಸ್ಥಳ ಪ್ರಮಾಣ ಪತ್ರ": [
-        "ಆಧಾರ್ ಕಾರ್ಡ್",
-        "ರೇಷನ್ ಕಾರ್ಡ್",
-        "ವಾಸಸ್ಥಳದ ದಾಖಲೆ",
-        "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-    ],
+    document.getElementById("serviceName").innerText =
+        service;
 
-    "RTC / ಪಹಣಿ": [
-        "ಆಧಾರ್ ಕಾರ್ಡ್",
-        "RTC / ಪಹಣಿ ವಿವರ",
-        "ಜಮೀನಿನ ದಾಖಲೆ",
-        "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-    ],
+}else{
 
-    "ಅಫಿಡವಿಟ್ ಸೇವೆಗಳು": [
-        "ಆಧಾರ್ ಕಾರ್ಡ್",
-        "ಅಗತ್ಯವಿರುವ ದಾಖಲೆಗಳು",
-        "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ"
-    ]
-
-};
-
-
-function loadDocuments(){
-
-    const list =
-    document.getElementById("documentList");
-
-    if(!list) return;
-
-    const documents =
-    serviceDocuments[selectedService];
-
-    list.innerHTML = "";
-
-    if(documents){
-
-        documents.forEach(function(doc){
-
-            const li =
-            document.createElement("li");
-
-            li.textContent = doc;
-
-            list.appendChild(li);
-
-        });
-
-    }else{
-
-        const li =
-        document.createElement("li");
-
-        li.textContent =
-        "ಸಂಬಂಧಿಸಿದ ದಾಖಲೆಗಳಿಗಾಗಿ VDSKN ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ.";
-
-        list.appendChild(li);
-
-    }
+    document.getElementById("serviceName").innerText =
+        "ಸೇವೆ ಆಯ್ಕೆ ಮಾಡಲಾಗಿಲ್ಲ";
 
 }
 
 
-loadDocuments();
-localStorage.getItem("selectedService");
-
-
-if(!selectedService || selectedService.trim()===""){
-
-    selectedService="ಸೇವೆ";
-
-}
-
-
-document.getElementById("serviceName").innerText =
-selectedService;
-
-
-
-function getData(){
-
-    let name =
-    document.getElementById("name").value.trim();
-
-    let mobile =
-    document.getElementById("mobile").value.trim();
-
-    let aadhaar =
-    document.getElementById("aadhaar").value.trim();
-
-    let address =
-    document.getElementById("address").value.trim();
-
-    let message =
-    document.getElementById("message").value.trim();
-
-
-    return {
-        name,
-        mobile,
-        aadhaar,
-        address,
-        message
-    };
-
-}
-
-
+/* =========================
+   SUBMIT
+========================= */
 
 function submitApplication(){
 
-    let data=getData();
+    let name =
+        document.getElementById("name").value.trim();
+
+    let mobile =
+        document.getElementById("mobile").value.trim();
+
+    let district =
+        document.getElementById("district").value.trim();
+
+    let taluk =
+        document.getElementById("taluk").value.trim();
+
+    let village =
+        document.getElementById("village").value.trim();
 
 
-    if(data.name===""){
+    if(name === ""){
 
-        alert("ದಯವಿಟ್ಟು ಅರ್ಜಿದಾರರ ಹೆಸರು ನಮೂದಿಸಿ.");
-
+        alert("ಅರ್ಜಿದಾರರ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.");
         return;
 
     }
 
 
-    if(!/^[0-9]{10}$/.test(data.mobile)){
+    if(mobile === "" || mobile.length !== 10){
 
-        alert("ದಯವಿಟ್ಟು ಸರಿಯಾದ 10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.");
-
+        alert("ಸರಿಯಾದ 10 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.");
         return;
 
     }
 
 
-    if(data.address===""){
+    if(district === ""){
 
-        alert("ದಯವಿಟ್ಟು ವಿಳಾಸ ನಮೂದಿಸಿ.");
-
+        alert("ಜಿಲ್ಲೆಯನ್ನು ನಮೂದಿಸಿ.");
         return;
 
     }
 
 
-    localStorage.setItem(
-        "applicationData",
-        JSON.stringify(data)
-    );
+    if(taluk === ""){
+
+        alert("ತಾಲ್ಲೂಕನ್ನು ನಮೂದಿಸಿ.");
+        return;
+
+    }
 
 
-    document.getElementById("success").style.display="block";
+    if(village === ""){
+
+        alert("ಗ್ರಾಮವನ್ನು ನಮೂದಿಸಿ.");
+        return;
+
+    }
+
+
+    document.getElementById("successMessage").style.display =
+        "block";
 
 
     window.scrollTo({
@@ -470,24 +519,41 @@ function submitApplication(){
 }
 
 
+/* =========================
+   WHATSAPP
+========================= */
 
 function sendWhatsApp(){
 
-    let data=getData();
+    let service =
+        localStorage.getItem("selectedService") ||
+        "ಸೇವೆ";
+
+    let name =
+        document.getElementById("name").value.trim();
+
+    let mobile =
+        document.getElementById("mobile").value.trim();
+
+    let aadhaar =
+        document.getElementById("aadhaar").value.trim();
+
+    let district =
+        document.getElementById("district").value.trim();
+
+    let taluk =
+        document.getElementById("taluk").value.trim();
+
+    let village =
+        document.getElementById("village").value.trim();
+
+    let message =
+        document.getElementById("message").value.trim();
 
 
-    if(data.name===""){
+    if(name === "" || mobile === ""){
 
-        alert("ದಯವಿಟ್ಟು ಹೆಸರು ನಮೂದಿಸಿ.");
-
-        return;
-
-    }
-
-
-    if(!/^[0-9]{10}$/.test(data.mobile)){
-
-        alert("ದಯವಿಟ್ಟು ಸರಿಯಾದ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.");
+        alert("ಮೊದಲು ಹೆಸರು ಮತ್ತು ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.");
 
         return;
 
@@ -495,27 +561,35 @@ function sendWhatsApp(){
 
 
     let text =
-`VDSKN ಸೇವೆಗೆ ಅರ್ಜಿ
+`VDSKN.IN - ಸೇವೆಗೆ ಅರ್ಜಿ
 
-ಸೇವೆ: ${selectedService}
+ಸೇವೆ: ${service}
 
-ಹೆಸರು: ${data.name}
+ಅರ್ಜಿದಾರರ ಹೆಸರು: ${name}
 
-ಮೊಬೈಲ್: ${data.mobile}
+ಮೊಬೈಲ್ ಸಂಖ್ಯೆ: ${mobile}
 
-ಆಧಾರ್: ${data.aadhaar}
+ಆಧಾರ್ ಸಂಖ್ಯೆ: ${aadhaar}
 
-ವಿಳಾಸ: ${data.address}
+ಜಿಲ್ಲೆ: ${district}
 
-ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ: ${data.message}`;
+ತಾಲ್ಲೂಕು: ${taluk}
+
+ಗ್ರಾಮ: ${village}
+
+ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ:
+${message}`;
 
 
-    let phone="919740221511";
+    let whatsappNumber =
+        "918095713511";
 
 
     let url =
-    "https://wa.me/"+phone+
-    "?text="+encodeURIComponent(text);
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(text);
 
 
     window.open(url,"_blank");
@@ -523,10 +597,14 @@ function sendWhatsApp(){
 }
 
 
+/* =========================
+   BACK
+========================= */
 
 function goBack(){
 
-    window.location.href="services.html";
+    window.location.href =
+        "services.html";
 
 }
 
